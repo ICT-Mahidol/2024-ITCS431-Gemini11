@@ -3,4 +3,5 @@
 - 6588018 Kritin Chitchobtham
 - 6588108 Arus Thienmee
 - 6588020 Pakaporn Chokpiroon
-- Hi
+- ITCS431 Software Design and Development (2024)
+- Hi Testing
