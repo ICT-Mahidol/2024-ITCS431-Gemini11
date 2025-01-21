@@ -1,4 +1,4 @@
-Here’s a sorted list of the functional and non-functional requirements grouped by actor:  
+
 
 ---
 
