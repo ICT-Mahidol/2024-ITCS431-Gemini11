@@ -54,6 +54,24 @@
 
 ---
 
+### **Developer**
+#### Functional Requirements:
+1. Developers must be able to to access only the Maintenance and Test levels.
+2. Developers must have permissions to operate in Monitoring and Testing modes.
+3. Developers must be able to design, test, configure, and upgrade subsystems while ensuring that upgrades do not interfere with ongoing observations.
+4. Developers must be able to access to test environments to perform integration and validation.
+5. Developers must be able to install software upgrades and generate new system versions.
+6. Developers must be able to intervene remotely or onsite to resolve major software issues.
+7. Developer must be able to access from onsite locations, remote facilities, and partner institutions.
+
+#### Non-Functional Requirements:
+1. The system shall implement role-based access control (RBAC) to restrict Developer access to Maintenance and Test levels.
+2. The system shall ensure that software upgrades and modifications do not interfere with ongoing observations.
+3. The system shall support efficient software integration and validation within test environments.
+4. Developers must follow strict configuration guidelines to prevent disruptions to normal operations.
+5. The system shall provide secure remote access to Developers while maintaining high availability for intervention during critical issues.
+
+
 ### **All Users**
 #### Functional Requirements:
 1. Every user must log in to access the system.
