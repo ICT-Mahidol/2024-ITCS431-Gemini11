@@ -1,4 +1,4 @@
-![usecase diagram](usecaseDiagram.png)
+![usecase diagram](usecaseDiagram.jpg)
 
 
 
