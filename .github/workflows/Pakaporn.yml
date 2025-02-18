@@ -25,6 +25,6 @@ jobs:
         java-version: '17'
     - name: Compile Java
       run: |
-       cd [Pakaporn]/HolidayTravelVehicles
-       javac -d . *.java
+       cd [Pakaporn]
+       # javac -d . *.java
       # compile java file from directory
