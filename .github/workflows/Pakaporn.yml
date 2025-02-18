@@ -25,6 +25,6 @@ jobs:
         java-version: '17'
     - name: Compile Java
       run: |
-       cd Pakaporn
+       cd ./Pakaporn
        # javac -d . *.java
       # compile java file from directory
