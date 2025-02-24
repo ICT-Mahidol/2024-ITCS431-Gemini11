@@ -254,7 +254,7 @@ submitting.</p></td>
 
 ## **Sequence Diagram**
 
-![]](./diagram/UC02_sequence.png)
+![](./diagram/UC02_sequence.png)
 
 
 <table>
