@@ -104,11 +104,11 @@ back changes and logs an error.</p></li>
 
 ## **Activity Diagram**
 
-![./diagram/UC01_activity.png]
+![](./diagram/UC01_activity.png)
 
 ## **Sequence Diagram**
 
-![./diagram/UC01_sequence.png]
+![]([./diagram/UC01_sequence.png)
 
 ## 
 
