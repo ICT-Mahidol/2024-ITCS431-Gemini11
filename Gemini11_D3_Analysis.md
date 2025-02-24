@@ -108,7 +108,7 @@ back changes and logs an error.</p></li>
 
 ## **Sequence Diagram**
 
-![]([./diagram/UC01_sequence.png)
+![](./diagram/UC01_sequence.png)
 
 ## 
 
@@ -250,11 +250,11 @@ submitting.</p></td>
 
 ## **Activity Diagram**
 
-![./diagram/UC02_activity.png]
+![](./diagram/UC02_activity.png)
 
 ## **Sequence Diagram**
 
-![./diagram/UC02_sequence.png]
+![]](./diagram/UC02_sequence.png)
 
 
 <table>
@@ -342,11 +342,11 @@ possible hardware or software issue.</p></td>
 
 ## **Activity Diagram**
 
-![./diagram/UC03_activity.png]
+![](./diagram/UC03_activity.png)
 
 ## **Sequence Diagram**
 
-![./diagram/UC03_sequence.png]
+![](./diagram/UC03_sequence.png)
 
 
 <table>
@@ -449,11 +449,11 @@ back the changes and shows the error logs.</p></td>
 
 ## **Activity Diagram**
 
-![./diagram/UC04_activity.png]
+![](./diagram/UC04_activity.png)
 
 ## **Sequence Diagram**
 
-![./diagram/UC04_sequence.png]
+![](./diagram/UC04_sequence.png)
 
 <table>
 <colgroup>
@@ -550,11 +550,11 @@ program.</p></li>
 
 ## **Activity Diagram**
 
-![./diagram/UC05_activity.png]
+![](./diagram/UC05_activity.png)
 
 ## **Sequence Diagram**
 
-![./diagram/UC05_sequence.png]
+![](./diagram/UC05_sequence.png)
 
 ## **Class Diagram**
-![./diagram/ClassDiagram.png]
+![](./diagram/ClassDiagram.png)
