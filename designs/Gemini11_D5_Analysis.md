@@ -1,98 +1,103 @@
 <table>
-  <colgroup>
-    <col style="width: 34%" />
-    <col style="width: 23%" />
-    <col style="width: 41%" />
-  </colgroup>
-  <tbody>
-    <tr>
-      <td>Use Case Name: Create a science plan</td>
-      <td>ID: 01</td>
-      <td>Importance Level: High</td>
-    </tr>
-    <tr>
-      <td colspan="2">Primary Actor: Astronomer</td>
-      <td>Use Case Type: Essential</td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <p><strong>Stakeholders and Interests:</strong></p>
-        <p><strong>Primary Actor:</strong> Astronomers want to create, test, and submit a science plan efficiently.</p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <p><strong>Brief Description:</strong></p>
-        <p>This use case describes how to create a science plan.</p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <p><strong>Trigger:</strong> The science observer initiates the process of creating an observing plan.</p>
-        <p>Type: User-Initiated</p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <p><strong>Relationships:</strong></p>
-        <p>Association: Astronomers</p>
-        <p>Include: -</p>
-        <p>Extent: -</p>
-        <p>Generalization: -</p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <p><strong>Normal Flow Events:</strong></p>
-        <ol>
-          <li>The astronomer navigates to the "Create Science Plan" option.</li>
-          <li>The astronomer clicks the button "Create New Science Plan".</li>
-          <li>The astronomer enters or selects values for each required field including:
-            <ul>
-              <li>Plan ID - automatically generated</li>
-              <li>Plan Name - short plain text</li>
-              <li>Creator - automatically filled using the astronomer’s account information</li>
-              <li>Funding - numerical values in Dollars with decimal points</li>
-              <li>Objective - long plain text</li>
-              <li>Start and End dates - select from a calendar</li>
-              <li>Telescope assigned - a list of two telescopes: Hawaii and Chile</li>
-              <li>Target - based on the star system selected from a list of star catalogues</li>
-            </ul>
-          </li>
-          <li>The astronomer configures image processing preferences including:
-            <ul>
-              <li>FileType – PNG, JPEG, RAW</li>
-              <li>FileQuality – Low, Fine</li>
-              <li>ColorType – Color mode, B&W mode</li>
-              <li>Contrast – decimal values (for both color and B&W modes)</li>
-              <li>Brightness – decimal values (only for color mode)</li>
-              <li>Saturation – decimal values (only for color mode)</li>
-              <li>Highlights – decimal values (only for B&W mode)</li>
-              <li>Exposure – decimal values (for both color and B&W modes)</li>
-              <li>Shadows – decimal values (only for B&W mode)</li>
-              <li>Whites – decimal values (only for B&W mode)</li>
-              <li>Blacks – decimal values (only for B&W mode)</li>
-              <li>Luminance – decimal values (only for color mode)</li>
-              <li>Hue – decimal values (only for color mode)</li>
-            </ul>
-          </li>
-          <li>The astronomer saves the science plan.</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <p><strong>Subflows:</strong></p>
-        <p><strong>Alternate/Exceptional Flow:</strong></p>
-        <ul>
-          <li>3a. If any required field is missing or incorrect, the astronomer fills the missing or incorrect value.</li>
-          <li>4a. If any required field is missing or incorrect, the astronomer fills the missing or incorrect value.</li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 23%" />
+<col style="width: 41%" />
+</colgroup>
+<tbody>
+<tr>
+<td>Use Case Name: Create a science plan</td>
+<td>ID: 01</td>
+<td>Importance Level: High</td>
+</tr>
+<tr>
+<td colspan="2">Primary Actor: Astronomer</td>
+<td>Use Case Type: Essential</td>
+</tr>
+<tr>
+<td colspan="3"><p><strong>Stakeholders and Interests:</strong></p>
+<p><strong>Primary Actor:</strong> Astronomers want to create, test, and submit a science plan efficiently.</p>
+</td>
+</tr>
+<tr>
+<td colspan="3"><p><strong>Brief Description:</strong></p>
+<p>This use case describes how to create a science plan.</p>
+</td>
+</tr>
+<tr>
+<td colspan="3"><p><strong>Trigger:</strong> The science observer initiated the process of creating an observing plan.</p>
+<p><strong>Type:</strong> User-Initiated</p>
+</td>
+</tr>
+<tr>
+<td colspan="3"><p><strong>Relationships:</strong></p>
+<p><strong>Association:</strong> Astronomers</p>
+<p>Include: -</p>
+<p>Extent: -</p>
+<p>Generalization: -</p>
+</td>
+</tr>
+<tr>
+<td colspan="3"><p><strong>Normal Flow Events:</strong></p>
+<ol>
+<li>The astronomer navigates to the "Create Science Plan" option.</li>
+<li>The astronomer clicks the button "Create New Science Plan".</li>
+<li>The astronomer enters or selects values for each required field.</li>
+<li>The astronomer configures image processing preferences including:</li>
+<li>The astronomer saves the science plan.</li>
+</ol>
+</td>
+</tr>
+<tr>
+<td colspan="3"><p><strong>Subflows:</strong></p>
+<ul>
+<li>3a. Plan ID – automatically generated</li>
+<li>3b. Plan Name – short plain text</li>
+<li>3c. Creator – automatically filled using the astronomer's account information</li>
+<li>3d. Funding – numerical values in Dollars with decimal points</li>
+<li>3e. Objective – long plain text</li>
+<li>3f. Start and End dates – select from a calendar</li>
+<li>3g. Telescope assigned – a list of two telescopes: Hawaii and Chile</li>
+<li>3h. Target – based on the star system selected from a list of star catalogue</li><br>
+<li>4a. FileType – PNG, JPEG, RAW</li>
+<li>4b. FileQuality – Low, Fine</li>
+<li>4c. ColorType – Color mode, B&W mode</li>
+<li>4d. Contrast – decimal values (for both color and B&W modes)</li>
+<li>4e. Brightness – decimal values (only for color mode)</li>
+<li>4f. Saturation – decimal values (only for color mode)</li>
+<li>4g. Highlights – decimal values (only for B&W mode)</li>
+<li>4h. Exposure – decimal values (for both color and B&W modes)</li>
+<li>4i. Shadows – decimal values (only for B&W mode)</li>
+<li>4j. Whites – decimal values (only for B&W mode)</li>
+<li>4k. Blacks – decimal values (only for B&W mode)</li>
+<li>4l. Luminance – decimal values (only for color mode)</li>
+<li>4m. Hue – decimal values (only for color mode)</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td colspan="3"><p><strong>Alternate/Exceptional Flow:</strong></p>
+<ul>
+<li>3a. If any required field is missing or incorrect, the astronomer fills in the missing or incorrect value.</li>
+<li>4a. If any required field is missing or incorrect, the astronomer fills in the missing or incorrect value.</li>
+</ul>
+</td>
+</tr>
+</tbody>
 </table>
 
+
+## 
+
+## **Activity Diagram**
+
+![](./selected_diagram/UC01_activity_new.png)
+
+## **Sequence Diagram**
+
+![](./selected_diagram/UC01_sequence_new.png)
+
+## 
 
 <table>
 <colgroup>
