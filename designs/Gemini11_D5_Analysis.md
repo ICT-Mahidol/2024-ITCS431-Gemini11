@@ -99,10 +99,10 @@
 
 ## **Activity Diagram**
 
-![](./selected_diagram/UC03_activity_new.png)
+![](./designs/selected_diagram/UC03_acitivty_new.jpg)
 
 ## **Sequence Diagram**
 
-![](./selected_diagram/UC03_sequence_new.png)
+![](./designs/selected_diagram/UC03_sequence_new.jpg)
 
 ## 
