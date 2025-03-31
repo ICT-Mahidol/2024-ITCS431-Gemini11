@@ -105,75 +105,64 @@
 <col style="width: 41%" />
 </colgroup>
 <tbody>
-<tr>
-<td>Use Case Name: Install New Subsystems and Configuration</td>
+<tr class="odd">
+<td>Use Case Name: Install New Configurations and Subsystems</td>
 <td>ID: 02</td>
 <td>Importance Level: High</td>
 </tr>
-<tr>
+<tr class="even">
 <td colspan="2">Primary Actor: Support Staff</td>
 <td>Use Case Type: User Initiated</td>
 </tr>
-<tr>
-<td colspan="3"><p><strong>Stakeholders and Interests:</strong></p>
-<p><strong>Support Staff:</strong> Requires smooth installation process with error handling.</p>
-<p><strong>Telescope Operator:</strong> Needs properly configured subsystems for operations.</p>
-<p><strong>Astronomers:</strong> Depend on functional subsystems for scientific observations.</p>
-<p><strong>Administrators:</strong> Oversee compliance with observatory standards.</p>
-</td>
+<tr class="odd">
+<td colspan="3"><p>Stakeholders and Interests:</p>
+<p><strong>Support Staff</strong>: Requires straightforward installation process with clear status updates.</p>
+<p><strong>Telescope Operator</strong>: Needs assurance that configuration changes won't disrupt ongoing operations.</p>
+<p><strong>System Administrators</strong>: Need complete records of all configuration changes.</p></td>
 </tr>
-<tr>
-<td colspan="3"><p><strong>Brief Description:</strong></p>
-<p>This use case describes the process for installing new telescope subsystems and configuring them for operational use, including validation, installation, error handling, and verification.</p>
-</td>
+<tr class="even">
+<td colspan="3"><p>Brief Description:</p>
+<p>This use case covers the installation of new subsystem configurations through a streamlined process. Support staff can upload and apply new configurations while maintaining the ability to revert changes if needed.</p></td>
 </tr>
-<tr>
-<td colspan="3"><p><strong>Trigger:</strong> Support staff initiates new subsystem installation.</p>
-<p><strong>Type:</strong> User-Initiated</p>
-</td>
+<tr class="odd">
+<td colspan="3"><p>Trigger: Support staff initiates new configuration installation process.</p>
+<p>Type: User-Initiated</p></td>
 </tr>
-<tr>
-<td colspan="3"><p><strong>Relationships:</strong></p>
-<p><strong>Association:</strong> Support Staff</p>
-<p><strong>Include:</strong> File Validation, Installation Execution</p>
-<p><strong>Extend:</strong> Error Handling, Rollback Process</p>
-<p><strong>Generalization:</strong> -</p>
-</td>
+<tr class="even">
+<td colspan="3"><p>Relationships:</p>
+<p>Association: Support Staff</p>
+<p>Include: Configuration Validation</p>
+<p>Extend: Rollback Process</p></td>
 </tr>
-<tr>
-<td colspan="3"><p><strong>Normal Flow Events:</strong></p>
-<ol>
-<li>Support staff accesses "Subsystem Installation" section.</li>
-<li>System displays available installation options.</li>
-<li>Staff selects subsystem and uploads configuration files.</li>
-<li>System validates uploaded files:
-   <ul>
-   <li>If invalid: Display error, prompt re-upload (AE1).</li>
-   <li>If valid: Proceed to installation.</li>
-   </ul>
-</li>
-<li>System updates and reconfigures components.</li>
-<li>System confirms successful installation.</li>
-<li>System updates logs.</li>
-<li>Support staff verifies system status.</li>
-</ol>
-</td>
-</tr>
-<tr>
-<td colspan="3"><p><strong>Subflows:</strong></p>
+<tr class="odd">
+<td colspan="3"><p>Normal Flow of Events:</p>
+<ol type="1">
+<li><p>Support staff navigates to "Subsystem Configuration" section.</p></li>
+<li><p>System displays current configuration with options to download or install new configuration.</p></li>
+<li><p>Support staff selects "Install New Configuration" option.</p></li>
+<li><p>System presents upload interface for new configuration files.</p></li>
+<li><p>System performs basic validation checks:
 <ul>
-<li><strong>SF1:</strong> Staff checks prior installation history in logs.</li>
-<li><strong>SF2:</strong> Staff generates installation report for records.</li>
-</ul>
-</td>
+<li>File structure integrity</li>
+<li>Required fields presence</li>
+</ul></p></li>
+<li><p>System applies new configuration.</p></li>
+<li><p>System displays installation completion status.</p></li>
+</ol></td>
 </tr>
-<tr>
-<td colspan="3"><p><strong>Alternate/Exceptional Flow:</strong></p>
+<tr class="even">
+<td colspan="3"><p>Subflows:</p>
 <ul>
-<li><strong>AE1:</strong> Invalid configuration → Error message + re-prompt.</li>
-<li><strong>AE2:</strong> Installation failure → Automatic rollback + error logging.</li>
-</ul>
-</td>
+<li><p><strong>SF1:</strong> System creates backup of previous configuration.</p></li>
+<li><p><strong>SF2:</strong> Support staff can download current configuration before changes.</p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td colspan="3"><p>Alternate/Exceptional Flow:</p>
+<ul>
+<li><p><strong>AE1:</strong> Invalid configuration file - System rejects upload and specifies errors.</p></li>
+<li><p><strong>AE2:</strong> Installation failure - System automatically reverts to previous configuration.</p></li>
+</ul></td>
 </tr>
 </tbody>
 </table>
