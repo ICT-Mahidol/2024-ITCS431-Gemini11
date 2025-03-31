@@ -161,7 +161,7 @@
 <td colspan="3"><p>Alternate/Exceptional Flow:</p>
 <ul>
 <li><p><strong>AE1:</strong> Invalid configuration file - System rejects upload and specifies errors.</p></li>
-<li><p><strong>AE2:</strong> Installation failure - System automatically reverts to previous configuration.</p></li>
+<li><p><strong>AE2:</strong> Installation failure - System automatically reverts to previous configuration and notify the user.</p></li>
 </ul></td>
 </tr>
 </tbody>
