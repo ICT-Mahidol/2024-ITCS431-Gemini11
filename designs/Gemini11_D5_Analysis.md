@@ -178,6 +178,17 @@
 </tbody>
 </table>
 
+## 
+
+## **Activity Diagram**
+
+![](./selected_diagram/UC02_activity_new.png)
+
+## **Sequence Diagram**
+
+![](./selected_diagram/UC02_sequence_new.png)
+
+## 
 
 <table>
 <colgroup>
