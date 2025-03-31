@@ -98,6 +98,86 @@
 ![](./selected_diagram/UC01_sequence_new.png)
 
 ## 
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 23%" />
+<col style="width: 41%" />
+</colgroup>
+<tbody>
+<tr>
+<td>Use Case Name: Install New Subsystems and Configuration</td>
+<td>ID: 02</td>
+<td>Importance Level: High</td>
+</tr>
+<tr>
+<td colspan="2">Primary Actor: Support Staff</td>
+<td>Use Case Type: User Initiated</td>
+</tr>
+<tr>
+<td colspan="3"><p><strong>Stakeholders and Interests:</strong></p>
+<p><strong>Support Staff:</strong> Requires smooth installation process with error handling.</p>
+<p><strong>Telescope Operator:</strong> Needs properly configured subsystems for operations.</p>
+<p><strong>Astronomers:</strong> Depend on functional subsystems for scientific observations.</p>
+<p><strong>Administrators:</strong> Oversee compliance with observatory standards.</p>
+</td>
+</tr>
+<tr>
+<td colspan="3"><p><strong>Brief Description:</strong></p>
+<p>This use case describes the process for installing new telescope subsystems and configuring them for operational use, including validation, installation, error handling, and verification.</p>
+</td>
+</tr>
+<tr>
+<td colspan="3"><p><strong>Trigger:</strong> Support staff initiates new subsystem installation.</p>
+<p><strong>Type:</strong> User-Initiated</p>
+</td>
+</tr>
+<tr>
+<td colspan="3"><p><strong>Relationships:</strong></p>
+<p><strong>Association:</strong> Support Staff</p>
+<p><strong>Include:</strong> File Validation, Installation Execution</p>
+<p><strong>Extend:</strong> Error Handling, Rollback Process</p>
+<p><strong>Generalization:</strong> -</p>
+</td>
+</tr>
+<tr>
+<td colspan="3"><p><strong>Normal Flow Events:</strong></p>
+<ol>
+<li>Support staff accesses "Subsystem Installation" section.</li>
+<li>System displays available installation options.</li>
+<li>Staff selects subsystem and uploads configuration files.</li>
+<li>System validates uploaded files:
+   <ul>
+   <li>If invalid: Display error, prompt re-upload (AE1).</li>
+   <li>If valid: Proceed to installation.</li>
+   </ul>
+</li>
+<li>System updates and reconfigures components.</li>
+<li>System confirms successful installation.</li>
+<li>System updates logs.</li>
+<li>Support staff verifies system status.</li>
+</ol>
+</td>
+</tr>
+<tr>
+<td colspan="3"><p><strong>Subflows:</strong></p>
+<ul>
+<li><strong>SF1:</strong> Staff checks prior installation history in logs.</li>
+<li><strong>SF2:</strong> Staff generates installation report for records.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td colspan="3"><p><strong>Alternate/Exceptional Flow:</strong></p>
+<ul>
+<li><strong>AE1:</strong> Invalid configuration → Error message + re-prompt.</li>
+<li><strong>AE2:</strong> Installation failure → Automatic rollback + error logging.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+
 
 <table>
 <colgroup>
