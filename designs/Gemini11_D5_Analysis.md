@@ -40,46 +40,48 @@
 <tr>
 <td colspan="3"><p><strong>Normal Flow Events:</strong></p>
 <ol>
-<li>The astronomer navigates to the "Create Science Plan" option.</li>
-<li>The astronomer clicks the button "Create New Science Plan".</li>
-<li>The astronomer enters or selects values for each required field.</li>
-<li>The astronomer configures image processing preferences including:</li>
-<li>The astronomer saves the science plan.</li>
+<li>The astronomer selects the “Create Science Plan” menu item.</li>
+<li>The system displays the Create a Science Plan page.</li>
+<li>The astronomer selects a button to create a new science plan.</li>
+<li>The System shows the create science plan form</li>
+<li>The astronomer fills in all the details. </li>
+<li>The astronomer selects the Data processing requirements. </li>
+<li>The astronomer creates the science plan by clicking the “Save Science Plan” button.</li>
 </ol>
 </td>
 </tr>
 <tr>
 <td colspan="3"><p><strong>Subflows:</strong></p>
 <ul>
-<li>3a. Plan ID – automatically generated</li>
-<li>3b. Plan Name – short plain text</li>
-<li>3c. Creator – automatically filled using the astronomer's account information</li>
-<li>3d. Funding – numerical values in Dollars with decimal points</li>
-<li>3e. Objective – long plain text</li>
-<li>3f. Start and End dates – select from a calendar</li>
-<li>3g. Telescope assigned – a list of two telescopes: Hawaii and Chile</li>
-<li>3h. Target – based on the star system selected from a list of star catalogue</li><br>
-<li>4a. FileType – PNG, JPEG, RAW</li>
-<li>4b. FileQuality – Low, Fine</li>
-<li>4c. ColorType – Color mode, B&W mode</li>
-<li>4d. Contrast – decimal values (for both color and B&W modes)</li>
-<li>4e. Brightness – decimal values (only for color mode)</li>
-<li>4f. Saturation – decimal values (only for color mode)</li>
-<li>4g. Highlights – decimal values (only for B&W mode)</li>
-<li>4h. Exposure – decimal values (for both color and B&W modes)</li>
-<li>4i. Shadows – decimal values (only for B&W mode)</li>
-<li>4j. Whites – decimal values (only for B&W mode)</li>
-<li>4k. Blacks – decimal values (only for B&W mode)</li>
-<li>4l. Luminance – decimal values (only for color mode)</li>
-<li>4m. Hue – decimal values (only for color mode)</li>
+<li>5a. Plan ID – automatically generated</li>
+<li>5b. Plan Name – short plain text</li>
+<li>5c. Creator – automatically filled using the astronomer's account information</li>
+<li>5d. Funding – numerical values in Dollars with decimal points</li>
+<li>5e. Objective – long plain text</li>
+<li>5f. Start and End dates – select from a calendar</li>
+<li>5g. Telescope assigned – a list of two telescopes: Hawaii and Chile</li>
+<li>5h. Target – based on the star system selected from a list of star catalogue</li><br>
+<li>6a. FileType – PNG, JPEG, RAW</li>
+<li>6b. FileQuality – Low, Fine</li>
+<li>6c. ColorType – Color mode, B&W mode</li>
+<li>6d. Contrast – decimal values (for both color and B&W modes)</li>
+<li>6e. Brightness – decimal values (only for color mode)</li>
+<li>6f. Saturation – decimal values (only for color mode)</li>
+<li>6g. Highlights – decimal values (only for B&W mode)</li>
+<li>6h. Exposure – decimal values (for both color and B&W modes)</li>
+<li>6i. Shadows – decimal values (only for B&W mode)</li>
+<li>6j. Whites – decimal values (only for B&W mode)</li>
+<li>6k. Blacks – decimal values (only for B&W mode)</li>
+<li>6l. Luminance – decimal values (only for color mode)</li>
+<li>6m. Hue – decimal values (only for color mode)</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td colspan="3"><p><strong>Alternate/Exceptional Flow:</strong></p>
 <ul>
-<li>3a. If any required field is missing or incorrect, the astronomer fills in the missing or incorrect value.</li>
-<li>4a. If any required field is missing or incorrect, the astronomer fills in the missing or incorrect value.</li>
+<li>3a. If any required field is missing or incorrect, the system displays an error message and the astronomer fill the form again.</li>
+<li>4a. If any required field is missing or incorrect, the system displays an error message and the astronomer select the data processing requirement again.</li>
 </ul>
 </td>
 </tr>
@@ -287,3 +289,6 @@
 ![](./selected_diagram/UC03_sequence_new.jpg)
 
 ## 
+## **Class Diagram**
+
+![](./selected_diagram/class_diagram_new.png)
