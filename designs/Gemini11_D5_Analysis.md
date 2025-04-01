@@ -177,6 +177,7 @@
 
 ## **Sequence Diagram**
 
+
 ![](./selected_diagram/UC02_sequence_new.png)
 
 ## 
