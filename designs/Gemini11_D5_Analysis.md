@@ -16,7 +16,7 @@
 </tr>
 <tr>
 <td colspan="3"><p><strong>Stakeholders and Interests:</strong></p>
-<p><strong>Primary Actor:</strong> Astronomers want to create, test, and submit a science plan efficiently.</p>
+<p><strong>Primary Actor:</strong> Astronomers want to create a science plan</p>
 </td>
 </tr>
 <tr>
@@ -80,14 +80,15 @@
 <tr>
 <td colspan="3"><p><strong>Alternate/Exceptional Flow:</strong></p>
 <ul>
-<li>3a. If any required field is missing or incorrect, the system displays an error message and the astronomer fill the form again.</li>
-<li>4a. If any required field is missing or incorrect, the system displays an error message and the astronomer select the data processing requirement again.</li>
+<li>6a. If any required field is missing or incorrect, the system displays an error message and the astronomer select the data processing requirement again.</li>
+<li>6b: If the selected Schedule has a start date after an end date, the system alerts 
+with a “Start date cannot be after the end date”. </li>
+<li>If the input data is not compatible with the legacy OCS system (e.g., invalid file format, unsupported field values, or missing required information), the system displays an error message: “Input data is not compatible with the legacy OCS system.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-
 
 ## 
 
