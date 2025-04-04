@@ -201,7 +201,7 @@ with a “Start date cannot be after the end date”. </li>
 </tr>
 <tr class="odd">
 <td colspan="3"><p>Stakeholders and Interests:</p>
-<p><strong>Science Observer</strong>: wants to create an observing program by transforming a validated science plan.
+<p>Science Observer wants to create an observing program by transforming a validated science plan.
 </p>
 </td>
 </tr>
