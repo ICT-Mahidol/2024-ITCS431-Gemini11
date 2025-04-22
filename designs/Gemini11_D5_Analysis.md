@@ -1,98 +1,187 @@
 <table>
-  <colgroup>
-    <col style="width: 34%" />
-    <col style="width: 23%" />
-    <col style="width: 41%" />
-  </colgroup>
-  <tbody>
-    <tr>
-      <td>Use Case Name: Create a science plan</td>
-      <td>ID: 01</td>
-      <td>Importance Level: High</td>
-    </tr>
-    <tr>
-      <td colspan="2">Primary Actor: Astronomer</td>
-      <td>Use Case Type: Essential</td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <p><strong>Stakeholders and Interests:</strong></p>
-        <p><strong>Primary Actor:</strong> Astronomers want to create, test, and submit a science plan efficiently.</p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <p><strong>Brief Description:</strong></p>
-        <p>This use case describes how to create a science plan.</p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <p><strong>Trigger:</strong> The science observer initiates the process of creating an observing plan.</p>
-        <p>Type: User-Initiated</p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <p><strong>Relationships:</strong></p>
-        <p>Association: Astronomers</p>
-        <p>Include: -</p>
-        <p>Extent: -</p>
-        <p>Generalization: -</p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <p><strong>Normal Flow Events:</strong></p>
-        <ol>
-          <li>The astronomer navigates to the "Create Science Plan" option.</li>
-          <li>The astronomer clicks the button "Create New Science Plan".</li>
-          <li>The astronomer enters or selects values for each required field including:
-            <ul>
-              <li>Plan ID - automatically generated</li>
-              <li>Plan Name - short plain text</li>
-              <li>Creator - automatically filled using the astronomer’s account information</li>
-              <li>Funding - numerical values in Dollars with decimal points</li>
-              <li>Objective - long plain text</li>
-              <li>Start and End dates - select from a calendar</li>
-              <li>Telescope assigned - a list of two telescopes: Hawaii and Chile</li>
-              <li>Target - based on the star system selected from a list of star catalogues</li>
-            </ul>
-          </li>
-          <li>The astronomer configures image processing preferences including:
-            <ul>
-              <li>FileType – PNG, JPEG, RAW</li>
-              <li>FileQuality – Low, Fine</li>
-              <li>ColorType – Color mode, B&W mode</li>
-              <li>Contrast – decimal values (for both color and B&W modes)</li>
-              <li>Brightness – decimal values (only for color mode)</li>
-              <li>Saturation – decimal values (only for color mode)</li>
-              <li>Highlights – decimal values (only for B&W mode)</li>
-              <li>Exposure – decimal values (for both color and B&W modes)</li>
-              <li>Shadows – decimal values (only for B&W mode)</li>
-              <li>Whites – decimal values (only for B&W mode)</li>
-              <li>Blacks – decimal values (only for B&W mode)</li>
-              <li>Luminance – decimal values (only for color mode)</li>
-              <li>Hue – decimal values (only for color mode)</li>
-            </ul>
-          </li>
-          <li>The astronomer saves the science plan.</li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="3">
-        <p><strong>Subflows:</strong></p>
-        <p><strong>Alternate/Exceptional Flow:</strong></p>
-        <ul>
-          <li>3a. If any required field is missing or incorrect, the astronomer fills the missing or incorrect value.</li>
-          <li>4a. If any required field is missing or incorrect, the astronomer fills the missing or incorrect value.</li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 23%" />
+<col style="width: 41%" />
+</colgroup>
+<tbody>
+<tr>
+<td>Use Case Name: Create a science plan</td>
+<td>ID: 01</td>
+<td>Importance Level: High</td>
+</tr>
+<tr>
+<td colspan="2">Primary Actor: Astronomer</td>
+<td>Use Case Type: Essential</td>
+</tr>
+<tr>
+<td colspan="3"><p><strong>Stakeholders and Interests:</strong></p>
+<p><strong>Primary Actor:</strong> Astronomers want to create a science plan</p>
+</td>
+</tr>
+<tr>
+<td colspan="3"><p><strong>Brief Description:</strong></p>
+<p>This use case describes how to create a science plan.</p>
+</td>
+</tr>
+<tr>
+<td colspan="3"><p><strong>Trigger:</strong> The science observer initiated the process of creating an observing plan.</p>
+<p><strong>Type:</strong> User-Initiated</p>
+</td>
+</tr>
+<tr>
+<td colspan="3"><p><strong>Relationships:</strong></p>
+<p><strong>Association:</strong> Astronomers</p>
+<p>Include: -</p>
+<p>Extent: -</p>
+<p>Generalization: -</p>
+</td>
+</tr>
+<tr>
+<td colspan="3"><p><strong>Normal Flow Events:</strong></p>
+<ol>
+<li>The astronomer selects the “Create Science Plan” menu item.</li>
+<li>The system displays the Create a Science Plan page.</li>
+<li>The astronomer selects a button to create a new science plan.</li>
+<li>The System shows the create science plan form</li>
+<li>The astronomer fills in all the details. </li>
+<li>The astronomer selects the Data processing requirements. </li>
+<li>The astronomer creates the science plan by clicking the “Save Science Plan” button.</li>
+</ol>
+</td>
+</tr>
+<tr>
+<td colspan="3"><p><strong>Subflows:</strong></p>
+<ul>
+<li>5a. Plan ID – automatically generated</li>
+<li>5b. Plan Name – short plain text</li>
+<li>5c. Creator – automatically filled using the astronomer's account information</li>
+<li>5d. Funding – numerical values in Dollars with decimal points</li>
+<li>5e. Objective – long plain text</li>
+<li>5f. Start and End dates – select from a calendar</li>
+<li>5g. Telescope assigned – a list of two telescopes: Hawaii and Chile</li>
+<li>5h. Target – based on the star system selected from a list of star catalogue</li><br>
+<li>6a. FileType – PNG, JPEG, RAW</li>
+<li>6b. FileQuality – Low, Fine</li>
+<li>6c. ColorType – Color mode, B&W mode</li>
+<li>6d. Contrast – decimal values (for both color and B&W modes)</li>
+<li>6e. Brightness – decimal values (only for color mode)</li>
+<li>6f. Saturation – decimal values (only for color mode)</li>
+<li>6g. Highlights – decimal values (only for B&W mode)</li>
+<li>6h. Exposure – decimal values (for both color and B&W modes)</li>
+<li>6i. Shadows – decimal values (only for B&W mode)</li>
+<li>6j. Whites – decimal values (only for B&W mode)</li>
+<li>6k. Blacks – decimal values (only for B&W mode)</li>
+<li>6l. Luminance – decimal values (only for color mode)</li>
+<li>6m. Hue – decimal values (only for color mode)</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td colspan="3"><p><strong>Alternate/Exceptional Flow:</strong></p>
+<ul>
+<li>6a. If any required field is missing or incorrect, the system displays an error message and the astronomer select the data processing requirement again.</li>
+<li>6b: If the selected Schedule has a start date after an end date, the system alerts 
+with a “Start date cannot be after the end date”. </li>
+<li>If the input data is not compatible with the legacy OCS system (e.g., invalid file format, unsupported field values, or missing required information), the system displays an error message: “Input data is not compatible with the legacy OCS system.</li>
+</ul>
+</td>
+</tr>
+</tbody>
 </table>
 
+## 
+
+## **Activity Diagram**
+
+![](./selected_diagram/UC01_activity_new.png)
+
+## **Sequence Diagram**
+
+![](./selected_diagram/UC01_sequence_new.png)
+
+## 
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 23%" />
+<col style="width: 41%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Use Case Name: Install New Configurations and Subsystems</td>
+<td>ID: 02</td>
+<td>Importance Level: High</td>
+</tr>
+<tr class="even">
+<td colspan="2">Primary Actor: Support Staff</td>
+<td>Use Case Type: User Initiated</td>
+</tr>
+<tr class="odd">
+<td colspan="3"><p>Stakeholders and Interests:</p>
+<p><strong>Support Staff</strong>: Requires straightforward installation process with clear status updates.</p>
+<p><strong>Telescope Operator</strong>: Needs assurance that configuration changes won't disrupt ongoing operations.</p>
+<p><strong>System Administrators</strong>: Need complete records of all configuration changes.</p></td>
+</tr>
+<tr class="even">
+<td colspan="3"><p>Brief Description:</p>
+<p>This use case covers the installation of new subsystem configurations through a streamlined process. Support staff can upload and apply new configurations while maintaining the ability to revert changes if needed.</p></td>
+</tr>
+<tr class="odd">
+<td colspan="3"><p>Trigger: Support staff initiates new configuration installation process.</p>
+<p>Type: User-Initiated</p></td>
+</tr>
+<tr class="even">
+<td colspan="3"><p>Relationships:</p>
+<p>Association: Support Staff</p>
+<p>Include: Configuration Validation</p>
+<p>Extend: Rollback Process</p></td>
+</tr>
+<tr class="odd">
+<td colspan="3"><p>Normal Flow of Events:</p>
+<ol type="1">
+<li><p>Support staff navigates to "Subsystem Configuration" section.</p></li>
+<li><p>System displays current configuration with options to download or install new configuration.</p></li>
+<li><p>Support staff selects "Install New Configuration" option.</p></li>
+<li><p>System presents upload interface for new configuration files.</p></li>
+<li><p>System performs basic validation checks:
+<ul>
+<li>File structure integrity</li>
+<li>Required fields presence</li>
+</ul></p></li>
+<li><p>System applies new configuration.</p></li>
+<li><p>System displays installation completion status.</p></li>
+</ol></td>
+</tr>
+<tr class="even">
+<td colspan="3"><p>Subflows:</p>
+<ul>
+<li><p><strong>SF1:</strong> System creates backup of previous configuration.</p></li>
+<li><p><strong>SF2:</strong> Support staff can download current configuration before changes.</p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td colspan="3"><p>Alternate/Exceptional Flow:</p>
+<ul>
+<li><p><strong>AE1:</strong> Invalid configuration file - System rejects upload and specifies errors.</p></li>
+<li><p><strong>AE2:</strong> Installation failure - System automatically reverts to previous configuration and notify the user.</p></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+
+## 
+
+## **Activity Diagram**
+
+![](./selected_diagram/UC02_activity_new.png)
+
+## **Sequence Diagram**
+
+
+![](./selected_diagram/UC02_sequence_new.png)
+
+## 
 
 <table>
 <colgroup>
@@ -112,7 +201,7 @@
 </tr>
 <tr class="odd">
 <td colspan="3"><p>Stakeholders and Interests:</p>
-<p><strong>Science Observer</strong>: wants to create an observing program by transforming a validated science plan.
+<p>Science Observer wants to create an observing program by transforming a validated science plan.
 </p>
 </td>
 </tr>
@@ -202,3 +291,6 @@
 ![](./selected_diagram/UC03_sequence_new.jpg)
 
 ## 
+## **Class Diagram**
+
+![](./selected_diagram/class_diagram_new.png)
