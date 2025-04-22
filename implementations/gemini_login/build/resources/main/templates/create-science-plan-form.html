@@ -197,14 +197,14 @@
         <button type="submit">Save Science Plan</button>
     </form>
     <script>
+        //predefined planID and Creator
         const generatePlanID = () => Math.floor(Math.random() * 900000 + 100000);
-        const generateCreator = "John";
-
+        const generateCreator = "Admin";
         window.onload = () => {
             document.getElementById("sciencePlanID").value = generatePlanID();
             document.getElementById("sciencePlanCreator").value = generateCreator;
         }
-
+        //check the color type and switch the parameter as color and b&w required different parameters
         const colorType = document.getElementById('dataProcessRequirementColorType');
         const colorFields = document.querySelectorAll('.color-only');
         const bwFields = document.querySelectorAll('.bw-only');
@@ -220,16 +220,15 @@
         toggleFields();
         colorType.addEventListener('change', toggleFields);
 
+        //check If the selected Schedule has a start date after an end date, the system alerts with a “Start date cannot be after the end date”.
         document.getElementById("createSciencePlanForm").addEventListener("submit", function(event) {
             const startDate = new Date(document.getElementById("sciencePlanStartDate").value);
             const endDate = new Date(document.getElementById("sciencePlanEndDate").value);
-
             if (startDate > endDate) {
                 alert("Start date cannot be after the end date");
                 event.preventDefault(); // prevent form submission
             }
         });
     </script>
-
 </body>
 </html>
