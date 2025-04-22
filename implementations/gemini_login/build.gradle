@@ -27,4 +27,5 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'com.h2database:h2'
 	implementation files('src/main/resources/lib/OCS.jar')
+	implementation files('libs/OCS.jar')
 }
