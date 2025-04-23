@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create a Science Plan Form</title>
+    <style>
+
+        label{
+            display: block;
+            padding-bottom: 1%;
+        }
+        input,select,textarea{
+            width: 30%;
+            margin-bottom: 1%;
+        }
+    </style>
+</head>
+<body>
+    <h1> Create a Science Plan Form </h1><br>
+    <form id="createSciencePlanForm" method="POST" action="/create-science-plan">
+
+    <label for="sciencePlanID">Plan Number</label>
+        <input type="number" id="sciencePlanID" name="sciencePlanID" readonly><br>
+
+        <label for="sciencePlanName">Plan Name</label>
+        <input type="text" id="sciencePlanName" name="sciencePlanName" required><br>
+
+        <label for="sciencePlanCreator">Creator</label>
+        <input type="text" id="sciencePlanCreator" name="sciencePlanCreator" readonly><br>
+
+        <label for="sciencePlanFunding">Funding (USD)</label>
+        <input type="number" step="1" id="sciencePlanFunding" name="sciencePlanFunding" required><br>
+
+        <label for="sciencePlanObjective">Objective</label>
+        <textarea id="sciencePlanObjective" name="sciencePlanObjective" required></textarea><br>
+
+        <label for="sciencePlanStartDate">Start Date:</label>
+        <input type="date" id="sciencePlanStartDate" name="sciencePlanStartDate" required><br>
+
+        <label for="sciencePlanEndDate">End Date:</label>
+        <input type="date" id="sciencePlanEndDate" name="sciencePlanEndDate" required><br>
+
+        <label for="sciencePlanTelescope">Telescope Assigned</label>
+        <select id="sciencePlanTelescope" name="sciencePlanTelescope" required>
+            <option value="hawaii">Hawaii</option>
+            <option value="chile">Chile</option>
+        </select><br>
+
+        <label for="sciencePlanTarget">Target</label>
+        <select id="sciencePlanTarget" name="sciencePlanTarget">
+            <option value="Andromeda">Andromeda</option>
+            <option value="Antlia">Antlia</option>
+            <option value="Apus">Apus</option>
+            <option value="Aquarius">Aquarius</option>
+            <option value="Aquila">Aquila</option>
+            <option value="Ara">Ara</option>
+            <option value="Aries">Aries</option>
+            <option value="Auriga">Auriga</option>
+            <option value="Boötes">Boötes</option>
+            <option value="Caelum">Caelum</option>
+            <option value="Camelopardalis">Camelopardalis</option>
+            <option value="Cancer">Cancer</option>
+            <option value="CanesVenatici">CanesVenatici</option>
+            <option value="CanisMajor">CanisMajor</option>
+            <option value="CanisMinor">CanisMinor</option>
+            <option value="Capricornus">Capricornus</option>
+            <option value="Carina">Carina</option>
+            <option value="Cassiopeia">Cassiopeia</option>
+            <option value="Centaurus">Centaurus</option>
+            <option value="Cepheus">Cepheus</option>
+            <option value="Cetus">Cetus</option>
+            <option value="Chamaeleon">Chamaeleon</option>
+            <option value="Circinus">Circinus</option>
+            <option value="Columba">Columba</option>
+            <option value="ComaBerenices">ComaBerenices</option>
+            <option value="CoronaAustralis">CoronaAustralis</option>
+            <option value="CoronaBorealis">CoronaBorealis</option>
+            <option value="Corvus">Corvus</option>
+            <option value="Crater">Crater</option>
+            <option value="Crux">Crux</option>
+            <option value="Cygnus">Cygnus</option>
+            <option value="Delphinus">Delphinus</option>
+            <option value="Dorado">Dorado</option>
+            <option value="Draco">Draco</option>
+            <option value="Equuleus">Equuleus</option>
+            <option value="Eridanus">Eridanus</option>
+            <option value="Fornax">Fornax</option>
+            <option value="Gemini">Gemini</option>
+            <option value="Grus">Grus</option>
+            <option value="Hercules">Hercules</option>
+            <option value="Horologium">Horologium</option>
+            <option value="Hydra">Hydra</option>
+            <option value="Hydrus">Hydrus</option>
+            <option value="Indus">Indus</option>
+            <option value="Lacerta">Lacerta</option>
+            <option value="Leo">Leo</option>
+            <option value="LeoMinor">LeoMinor</option>
+            <option value="Lepus">Lepus</option>
+            <option value="Libra">Libra</option>
+            <option value="Lupus">Lupus</option>
+            <option value="Lynx">Lynx</option>
+            <option value="Lyra">Lyra</option>
+            <option value="Mensa">Mensa</option>
+            <option value="Microscopium">Microscopium</option>
+            <option value="Monoceros">Monoceros</option>
+            <option value="Musca">Musca</option>
+            <option value="Norma">Norma</option>
+            <option value="Octans">Octans</option>
+            <option value="Ophiuchus">Ophiuchus</option>
+            <option value="Orion">Orion</option>
+            <option value="Pavo">Pavo</option>
+            <option value="Pegasus">Pegasus</option>
+            <option value="Perseus">Perseus</option>
+            <option value="Phoenix">Phoenix</option>
+            <option value="Pictor">Pictor</option>
+            <option value="Pisces">Pisces</option>
+            <option value="PiscisAustrinus">PiscisAustrinus</option>
+            <option value="Puppis">Puppis</option>
+            <option value="Pyxis">Pyxis</option>
+            <option value="Reticulum">Reticulum</option>
+            <option value="Sagitta">Sagitta</option>
+            <option value="Sagittarius">Sagittarius</option>
+            <option value="Scorpius">Scorpius</option>
+            <option value="Sculptor">Sculptor</option>
+            <option value="Scutum">Scutum</option>
+            <option value="Serpens">Serpens</option>
+            <option value="Sextans">Sextans</option>
+            <option value="Taurus">Taurus</option>
+            <option value="Telescopiu">Telescopiu</option>
+            <option value="Triangulum">Triangulum</option>
+            <option value="TriangulumAustrale">TriangulumAustrale</option>
+            <option value="Tucana">Tucana</option>
+            <option value="UrsaMajor">UrsaMajor</option>
+            <option value="UrsaMinor">UrsaMinor</option>
+            <option value="Vela">Vela</option>
+            <option value="Virgo">Virgo</option>
+            <option value="Volans">Volans</option>
+            <option value="Vulpecula">Vulpecula</option>
+        </select><br>
+
+        <h2>Data Processing Requirements</h2>
+
+        <label for="dataProcessRequirementFileType">File Type</label>
+        <select id="dataProcessRequirementFileType" name="dataProcessRequirementFileType">
+            <option value="png">PNG</option>
+            <option value="jpeg">JPEG</option>
+            <option value="raw">RAW</option>
+        </select><br>
+
+        <label for="dataProcessRequirementFileQuality">File Quality</label>
+        <select id="dataProcessRequirementFileQuality" name="dataProcessRequirementFileQuality">
+            <option value="low">Low</option>
+            <option value="fine">Fine</option>
+        </select><br>
+
+        <label for="dataProcessRequirementColorType">Color Type</label>
+        <select id="dataProcessRequirementColorType" name="dataProcessRequirementColorType">
+            <option value="color">Color mode</option>
+            <option value="bw">B&W mode</option>
+        </select><br>
+
+        <label for="dataProcessRequirementContrast">Contrast</label>
+        <input type="number" step="0.01" id="dataProcessRequirementContrast" name="dataProcessRequirementContrast"><br>
+
+        <label for="dataProcessRequirementExposure">Exposure</label>
+        <input type="number" step="0.01" id="dataProcessRequirementExposure" name="dataProcessRequirementExposure"><br>
+        <div class="color-only">
+            <label for="dataProcessRequirementBrightness">Brightness</label>
+            <input type="number" step="0.01" id="dataProcessRequirementBrightness" name="dataProcessRequirementBrightness"><br>
+
+            <label for="dataProcessRequirementSaturation">Saturation</label>
+            <input type="number" step="0.01" id="dataProcessRequirementSaturation" name="dataProcessRequirementSaturation"><br>
+
+            <label for="dataProcessRequirementLuminance">Luminance</label>
+            <input type="number" step="0.01" id="dataProcessRequirementLuminance" name="dataProcessRequirementLuminance"><br>
+
+            <label for="dataProcessRequirementHue">Hue</label>
+            <input type="number" step="0.01" id="dataProcessRequirementHue" name="dataProcessRequirementHue"><br>
+        </div>
+        <div class="bw-only">
+            <label for="dataProcessRequirementHighlights">Highlights</label>
+            <input type="number" step="0.01" id="dataProcessRequirementHighlights" name="dataProcessRequirementHighlights"><br>
+
+            <label for="dataProcessRequirementShadows">Shadows</label>
+            <input type="number" step="0.01" id="dataProcessRequirementShadows" name="dataProcessRequirementShadows"><br>
+
+            <label for="dataProcessRequirementWhites">Whites</label>
+            <input type="number" step="0.01" id="dataProcessRequirementWhites" name="dataProcessRequirementWhites"><br>
+
+            <label for="dataProcessRequirementBlacks">Blacks</label>
+            <input type="number" step="0.01" id="dataProcessRequirementBlacks" name="dataProcessRequirementBlacks"><br>
+        </div>
+
+
+        <button type="submit">Save Science Plan</button>
+    </form>
+    <script>
+        //predefined planID and Creator
+        const generatePlanID = () => Math.floor(Math.random() * 900000 + 100000);
+        const generateCreator = "Admin";
+        window.onload = () => {
+            document.getElementById("sciencePlanID").value = generatePlanID();
+            document.getElementById("sciencePlanCreator").value = generateCreator;
+        }
+        //check the color type and switch the parameter as color and b&w required different parameters
+        const colorType = document.getElementById('dataProcessRequirementColorType');
+        const colorFields = document.querySelectorAll('.color-only');
+        const bwFields = document.querySelectorAll('.bw-only');
+        function toggleFields() {
+            if (colorType.value === 'color') {
+                colorFields.forEach(f => f.style.display = 'block');
+                bwFields.forEach(f => f.style.display = 'none');
+            } else {
+                colorFields.forEach(f => f.style.display = 'none');
+                bwFields.forEach(f => f.style.display = 'block');
+            }
+        }
+        toggleFields();
+        colorType.addEventListener('change', toggleFields);
+
+        //check If the selected Schedule has a start date after an end date, the system alerts with a “Start date cannot be after the end date”.
+        document.getElementById("createSciencePlanForm").addEventListener("submit", function(event) {
+            const startDate = new Date(document.getElementById("sciencePlanStartDate").value);
+            const endDate = new Date(document.getElementById("sciencePlanEndDate").value);
+            if (startDate > endDate) {
+                alert("Start date cannot be after the end date");
+                event.preventDefault(); // prevent form submission
+            }
+        });
+    </script>
+</body>
+</html>
