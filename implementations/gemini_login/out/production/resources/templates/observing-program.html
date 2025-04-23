@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Observing Program</title>
+    <style>
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+<h1>Create Observing Program</h1>
+
+<form id="observingProgramForm">
+    <label for="planNo">Plan Number:</label>
+    <input type="number" id="planNo" name="planNo" required>
+
+    <label for="geminiLocation">Gemini Location:</label>
+    <input type="text" id="geminiLocation" name="geminiLocation" required>
+
+    <label for="opticsPrimary">Optics Primary:</label>
+    <input type="text" id="opticsPrimary" name="opticsPrimary" required>
+
+    <label for="fStop">F-stop:</label>
+    <input type="number" step="0.1" id="fStop" name="fStop" required>
+
+    <label for="opticsSecondaryRMS">Optics Secondary RMS:</label>
+    <input type="number" step="0.1" id="opticsSecondaryRMS" name="opticsSecondaryRMS" required>
+
+    <label for="scienceFoldMirrorDegree">Science Fold Mirror Degree:</label>
+    <input type="number" step="0.1" id="scienceFoldMirrorDegree" name="scienceFoldMirrorDegree" required>
+
+    <label for="scienceFoldMirrorType">Science Fold Mirror Type:</label>
+    <select id="scienceFoldMirrorType" name="scienceFoldMirrorType">
+        <option value="REFLECTIVE_CONVERGING_BEAM">REFLECTIVE_CONVERGING_BEAM</option>
+        <option value="CASSEGRAIN_FOCUS">CASSEGRAIN_FOCUS</option>
+    </select>
+
+    <label for="moduleContent">Module Content:</label>
+    <input type="number" id="moduleContent" name="moduleContent" required>
+
+    <label for="calibrationUnit">Calibration Unit:</label>
+    <select id="calibrationUnit" name="calibrationUnit">
+        <option value="Argon">Argon</option>
+        <option value="Xenon">Xenon</option>
+        <option value="ThAr">ThAr</option>
+        <option value="CuAr">CuAr</option>
+    </select>
+
+    <label for="lightType">Light Type:</label>
+    <select id="lightType" name="lightType">
+        <option value="MaunaKeaSkyEmission">MaunaKeaSkyEmission</option>
+        <option value="CerroPachonSkyEmission">CerroPachonSkyEmission</option>
+    </select>
+
+    <h3>Telescope Position Pairs</h3>
+    <div id="telescopePositionPairs">
+        <label>Direction:</label>
+        <input type="number" step="0.1" name="direction" required>
+        <label>Degree:</label>
+        <input type="number" step="0.1" name="degree" required>
+    </div>
+
+    <button type="button" onclick="addTelescopePositionPair()">Add More Positions</button>
+    <br><br>
+    <button type="submit">Create Observing Program</button>
+</form>
+
+<script>
+    function addTelescopePositionPair() {
+        const container = document.getElementById("telescopePositionPairs");
+        const directionInput = document.createElement("input");
+        directionInput.type = "number";
+        directionInput.name = "direction";
+        directionInput.step = "0.1";
+        directionInput.required = true;
+        directionInput.placeholder = "Direction";
+
+        const degreeInput = document.createElement("input");
+        degreeInput.type = "number";
+        degreeInput.name = "degree";
+        degreeInput.step = "0.1";
+        degreeInput.required = true;
+        degreeInput.placeholder = "Degree";
+
+        container.appendChild(document.createElement("br"));
+        container.appendChild(document.createTextNode("Direction:"));
+        container.appendChild(directionInput);
+        container.appendChild(document.createTextNode("Degree:"));
+        container.appendChild(degreeInput);
+    }
+
+    document.getElementById("observingProgramForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const form = event.target;
+        const formData = new FormData(form);
+        const data = {
+            planNo: Number(formData.get("planNo")),
+            geminiLocation: formData.get("geminiLocation"),
+            opticsPrimary: formData.get("opticsPrimary"),
+            fStop: Number(formData.get("fStop")),
+            opticsSecondaryRMS: Number(formData.get("opticsSecondaryRMS")),
+            scienceFoldMirrorDegree: Number(formData.get("scienceFoldMirrorDegree")),
+            scienceFoldMirrorType: formData.get("scienceFoldMirrorType"),
+            moduleContent: Number(formData.get("moduleContent")),
+            calibrationUnit: formData.get("calibrationUnit"),
+            lightType: formData.get("lightType"),
+            telePositionPair: []
+        };
+
+        const directions = form.querySelectorAll('input[name="direction"]');
+        const degrees = form.querySelectorAll('input[name="degree"]');
+        for (let i = 0; i < directions.length; i++) {
+            data.telePositionPair.push({
+                direction: parseFloat(directions[i].value),
+                degree: parseFloat(degrees[i].value)
+            });
+        }
+
+        fetch("/api/observing-program", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => {
+                if (!response.ok) throw new Error("Creation failed.");
+                return response.json();
+            })
+            .then(data => {
+                alert("Observing Program created successfully!");
+                console.log(data);
+            })
+            .catch(error => {
+                alert("Error creating program: " + error.message);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Configurations</title>
+  <!-- Bootstrap 4 CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+  <h2 class="text-center">Current Configurations</h2>
+
+  <!-- Display configurations in a table -->
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Configuration File Path</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Loop through configurations (this part will be populated dynamically) -->
+    <tr>
+      <td>1</td> <!-- Example config ID -->
+      <td>/path/to/config/file</td> <!-- Example file path -->
+      <td>
+        <!-- Button to go to upload page -->
+        <a href="/upload-config" class="btn btn-success">Go to Upload Configuration</a>
+
+        <!-- Form to delete a configuration -->
+        <form action="/remove-config" method="POST" style="display:inline;">
+          <input type="hidden" name="confNo" value="1"> <!-- Pass the configuration ID -->
+          <button type="submit" class="btn btn-danger">Delete Configuration</button>
+        </form>
+      </td>
+    </tr>
+    <!-- Add more configurations dynamically here -->
+    </tbody>
+  </table>
+
+  <!-- Button to go to upload configuration page -->
+  <a href="/upload-config" class="btn btn-primary btn-lg btn-block mt-4">Add New Configuration</a>
+</div>
+
+<!-- Bootstrap and jQuery JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
