@@ -25,7 +25,13 @@ public class ConfigurationService {
 
     // Method to retrieve configurations from the database
     public String getConfigurations() {
-        return ocs.getConfigurations();  // Calls the OCS method to get the configurations
+
+        try {
+             ocs.getDefaultConfiguration();  // Calls the OCS method to get the configurations
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return "";
     }
 
     // Method to add a new configuration (handling file upload)
@@ -39,6 +45,7 @@ public class ConfigurationService {
 
         // If file is successfully saved, add the configuration to the database
         return filePath != null && ocs.addConfiguration(filePath);
+        ocs.
     }
 
     // Method to remove an existing configuration
