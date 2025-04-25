@@ -1130,3 +1130,12 @@ SELECT * FROM opTable [42104-214]
 2025-04-24 17:25:10 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MASSCIENCEPLAN" not found (this database is empty); SQL statement:
 SELECT * FROM masSciencePlan [42104-214]
+2025-04-25 18:33:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MASSCIENCEPLAN" not found (this database is empty); SQL statement:
+SELECT * FROM masSciencePlan [42104-214]
+2025-04-25 22:49:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MASSCIENCEPLAN" not found (this database is empty); SQL statement:
+SELECT * FROM masSciencePlan [42104-214]
+2025-04-25 23:07:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MASSCIENCEPLAN" not found (this database is empty); SQL statement:
+SELECT * FROM masSciencePlan [42104-214]

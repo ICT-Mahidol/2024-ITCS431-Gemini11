@@ -1,9 +1,12 @@
 package th.ac.mahidol.ict.gemini_login.controller;
+
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
+
 import th.ac.mahidol.ict.gemini_login.entity.User;
 import th.ac.mahidol.ict.gemini_login.repository.UserRepository;
 import th.ac.mahidol.ict.gemini_login.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -77,7 +80,6 @@ public class controller {
         return "redirect:/users";
     }
 
-
     @GetMapping("/welcome")
     public String welcome(@AuthenticationPrincipal UserDetails userDetails,
                           Model model,
@@ -93,6 +95,11 @@ public class controller {
                 .findFirst()
                 .map(auth -> auth.getAuthority())
                 .orElse("ROLE_UNKNOWN");
+
+        // Redirect Science Observer to observing program form
+        if (role.equals("ROLE_SCIENCE_OBSERVER")) {
+            return "redirect:/observing-program-form";
+        }
 
         model.addAttribute("role", role);
         model.addAttribute("message", message);
