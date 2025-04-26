@@ -4,9 +4,6 @@ import th.ac.mahidol.ict.gemini_login.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -18,12 +15,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests(auth -> auth
-                        // Secure the configuration pages, require authentication
-                        .requestMatchers("/view-configurations", "/view-default-config", "/update-config").authenticated()
+                .authorizeRequests(auth -> auth
+                        // Admin pages: only admin users can access the "View All Users" and "Create New User" pages
+                        .requestMatchers("/users", "/register", "/register/**").hasRole("ADMINISTRATOR")
 
-                        // Allow the registration page for users with the ADMINISTRATOR role
-                        .requestMatchers("/register", "/register/**").hasRole("ADMINISTRATOR")
+                        .requestMatchers("/observing-program-form").authenticated()
+
+                        // Authenticated users can access the configuration pages
+                        .requestMatchers("/view-configurations", "/view-default-config", "/update-config").authenticated()
 
                         // Allow all other requests (public access to pages like the Welcome page)
                         .anyRequest().permitAll()

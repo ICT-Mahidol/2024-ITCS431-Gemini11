@@ -77,7 +77,7 @@ public class ConfigurationController {
         return Files.readAllBytes(path);  // Return the content as byte array for download
     }
 
-//    // Validate JSON format
+    // Validate JSON format
 //    private boolean isJSONValid(String test) {
 //        try {
 //            new org.json.JSONObject(test); // Try to create a JSONObject, if it fails, it's not valid
