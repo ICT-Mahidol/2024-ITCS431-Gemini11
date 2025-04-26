@@ -13,13 +13,19 @@
 
     <!-- Displaying status message (error or success) -->
     <div class="alert alert-info" th:if="${statusMessage}" th:text="${statusMessage}"></div>
-
+    <div class="text-center">
+        <a href="/welcome" class="btn btn-secondary btn-lg mt-4">Back to Welcome</a>
+    </div>
     <!-- Buttons to view current or default configuration -->
     <form action="/view-configurations" method="GET">
         <button type="submit" class="btn btn-primary btn-lg btn-block mt-4">View Current Configuration</button>
     </form>
     <form action="/view-default-config" method="GET">
         <button type="submit" class="btn btn-secondary btn-lg btn-block mt-4">View Default Configuration</button>
+    </form>
+    <!-- Button to download the current configuration -->
+    <form action="/download-config" method="GET">
+        <button type="submit" class="btn btn-info btn-lg btn-block mt-4">Download Current Configuration</button>
     </form>
 
     <hr>
@@ -38,6 +44,8 @@
     <!-- Display current or default configuration content -->
     <h3>Configuration Content:</h3>
     <pre th:text="${configurations}"></pre> <!-- Display JSON content in a readable format -->
+
+
 </div>
 
 <!-- Bootstrap and jQuery JS -->

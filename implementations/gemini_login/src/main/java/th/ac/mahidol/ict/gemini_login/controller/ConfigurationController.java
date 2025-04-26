@@ -7,12 +7,17 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import th.ac.mahidol.ict.gemini_login.service.ConfigurationService;
 import java.io.IOException;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Controller
 public class ConfigurationController {
 
     @Autowired
     private ConfigurationService configurationService;
+
 
     // Endpoint to view current configurations
     @GetMapping("/view-configurations")
@@ -57,4 +62,28 @@ public class ConfigurationController {
         }
         return "configurationPage";  // Return to the configuration page with status message
     }
+
+    @GetMapping("/download-config")
+    public @ResponseBody byte[] downloadConfig() throws IOException {
+        String workingDir = System.getProperty("user.dir");
+        File currentFile = new File(workingDir, "/references/gemini_config_current.json");
+
+        if (!currentFile.exists()) {
+            throw new IOException("Current configuration file not found!");
+        }
+
+        // Read the file content
+        Path path = Paths.get(currentFile.getAbsolutePath());
+        return Files.readAllBytes(path);  // Return the content as byte array for download
+    }
+
+//    // Validate JSON format
+//    private boolean isJSONValid(String test) {
+//        try {
+//            new org.json.JSONObject(test); // Try to create a JSONObject, if it fails, it's not valid
+//        } catch (Exception e) {
+//            return false;
+//        }
+//        return true;
+//    }
 }

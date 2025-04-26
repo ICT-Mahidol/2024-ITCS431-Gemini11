@@ -5,24 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60cab173-6549-4f1f-9369-cba5b5ad8562" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/configurationPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/gemini-login.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/gemini-login.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/th/ac/mahidol/ict/gemini_login/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/th/ac/mahidol/ict/gemini_login/config/SecurityConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/th/ac/mahidol/ict/gemini_login/controller/ConfigurationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/th/ac/mahidol/ict/gemini_login/controller/ConfigurationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/th/ac/mahidol/ict/gemini_login/controller/ObservingProgramController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/th/ac/mahidol/ict/gemini_login/controller/ObservingProgramController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/th/ac/mahidol/ict/gemini_login/service/ConfigurationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/th/ac/mahidol/ict/gemini_login/service/ConfigurationService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/data.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/data.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/observing-program.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/templates/observing-program.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/uploadConfig.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/templates/uploadConfig.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/viewConfig.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/templates/viewConfig.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/templates/welcome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/th/ac/mahidol/ict/gemini_login/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/th/ac/mahidol/ict/gemini_login/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/configurationPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/templates/configurationPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/references/gemini_config_current.json" beforeDir="false" afterPath="$PROJECT_DIR$/references/gemini_config_current.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/th/ac/mahidol/ict/gemini_login/controller/ConfigurationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/th/ac/mahidol/ict/gemini_login/controller/ConfigurationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/th/ac/mahidol/ict/gemini_login/service/ConfigurationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/th/ac/mahidol/ict/gemini_login/service/ConfigurationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/uploadConfig.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/uploadConfig.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/viewConfig.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/viewConfig.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/welcome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/configurationPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/configurationPage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +121,7 @@
       <workItem from="1745417748714" duration="617000" />
       <workItem from="1745489927782" duration="627000" />
       <workItem from="1745580377310" duration="4888000" />
-      <workItem from="1745665347007" duration="2553000" />
+      <workItem from="1745665347007" duration="3496000" />
     </task>
     <servers />
   </component>
