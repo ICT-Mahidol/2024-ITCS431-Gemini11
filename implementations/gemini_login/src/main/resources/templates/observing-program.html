@@ -13,33 +13,42 @@
             width: 300px;
         }
 
-        #notificationBanner {
+        /* Modal Styles */
+        .modal {
             display: none;
             position: fixed;
-            top: 0;
+            z-index: 10000;
             left: 0;
-            right: 0;
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 60%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border-radius: 10px;
             text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
             font-weight: bold;
-            z-index: 9999;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        #notificationBanner .close-btn {
-            position: absolute;
-            right: 20px;
-            top: 15px;
             cursor: pointer;
-            font-weight: normal;
         }
 
-        #programSummary {
-            margin-top: 20px;
-            border-top: 1px solid #ccc;
-            padding-top: 10px;
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
         }
 
         .button-group {
@@ -47,16 +56,11 @@
         }
 
         .button-group button {
-            margin-right: 10px;
+            margin: 5px;
         }
     </style>
 </head>
 <body>
-
-<div id="notificationBanner">
-    <span id="notificationMessage"></span>
-    <span class="close-btn" onclick="closeNotification()">×</span>
-</div>
 
 <h1>Create Observing Program</h1>
 
@@ -128,12 +132,18 @@
     <button type="submit">Create Observing Program</button>
 </form>
 
-<div id="programSummary"></div>
+<!-- Modal -->
+<div id="summaryModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modalSummaryContent"></div>
 
-<div class="button-group" style="display:none;" id="actionButtons">
-    <button onclick="editProgram()">Edit the Program</button>
-    <button onclick="resetForm()">Create Another Observing Program</button>
-    <button onclick="viewAllPrograms()">View All My Observing Programs</button>
+        <div class="button-group">
+            <button onclick="editProgram()">Edit the Program</button>
+            <button onclick="createAnother()">Create Another Observing Program</button>
+            <button onclick="viewAllPrograms()">View All Observing Programs</button>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -172,7 +182,7 @@
     }
 
     document.getElementById('observingProgramForm').addEventListener('submit', function(event) {
-        event.preventDefault();
+        event.preventDefault(); // prevent form from reloading
 
         const formData = new FormData(this);
 
@@ -185,36 +195,53 @@
         });
 
         const summary = `
-            <h2>Program Summary</h2>
+            <h2>Observing Program Summary</h2>
             <p><strong>Plan Number:</strong> ${formData.get('planNo')}</p>
-            <p><strong>Location:</strong> ${formData.get('geminiLocation')}</p>
-            <p><strong>Instrument:</strong> ${formData.get('moduleContent')}</p>
-            <p><strong>Calibration:</strong> ${formData.get('calibrationUnit')}</p>
+            <p><strong>Gemini Location:</strong> ${formData.get('geminiLocation')}</p>
+            <p><strong>Optics Primary:</strong> ${formData.get('opticsPrimary')}</p>
+            <p><strong>F-stop:</strong> ${formData.get('fStop')}</p>
+            <p><strong>Optics Secondary RMS:</strong> ${formData.get('opticsSecondaryRMS')}</p>
+            <p><strong>Science Fold Mirror Degree:</strong> ${formData.get('scienceFoldMirrorDegree')}</p>
+            <p><strong>Science Fold Mirror Type:</strong> ${formData.get('scienceFoldMirrorType')}</p>
+            <p><strong>Module Content:</strong> ${formData.get('moduleContent')}</p>
+            <p><strong>Calibration Unit:</strong> ${formData.get('calibrationUnit')}</p>
             <p><strong>Light Type:</strong> ${formData.get('lightType')}</p>
-            <p><strong>Telescope Steps:</strong></p>
-            <ul>${telescopeSteps}</ul>
+            <p><strong>Telescope Position Steps:</strong></p>
+            <p>${telescopeSteps}</p>
         `;
 
-        alert('Your observing program has been created successfully!');
-        document.getElementById('programSummary').innerHTML = summary;
-        document.getElementById('actionButtons').style.display = 'block';
+        document.getElementById('modalSummaryContent').innerHTML = summary;
+        document.getElementById('summaryModal').style.display = 'block';
     });
 
-
-    function resetForm() {
-        document.getElementById('observingProgramForm').reset();
-        document.getElementById('programSummary').innerHTML = '';
-        document.getElementById('actionButtons').style.display = 'none';
+    function closeModal() {
+        document.getElementById('summaryModal').style.display = 'none';
     }
 
     function editProgram() {
+        closeModal();
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    function createAnother() {
+        document.getElementById('observingProgramForm').reset();
+        const positionPairs = document.getElementById('telescopePositionPairs');
+        positionPairs.innerHTML = `
+            <label>Direction:</label>
+            <select name="direction" required>
+                <option value="North">North</option>
+                <option value="South">South</option>
+                <option value="East">East</option>
+                <option value="West">West</option>
+            </select>
+            <label>Degree:</label>
+            <input type="number" step="0.1" name="degree" required>
+        `;
+        closeModal();
+    }
+
     function viewAllPrograms() {
-        alert("Redirecting to: View All My Observing Programs");
-        // Example redirect
-        // window.location.href = "/my-observing-programs";
+        window.location.href = "http://localhost:8080/view-observing-program";
     }
 </script>
 
