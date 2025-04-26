@@ -1,72 +1,54 @@
-//package th.ac.mahidol.ict.gemini_login.service;
-//
-//import org.springframework.stereotype.Service;
-//import org.springframework.web.multipart.MultipartFile;
-//import edu.gemini.app.ocs.OCS;
-//
-//import java.io.File;
-//import java.io.IOException;
-//import java.nio.file.Files;
-//import java.nio.file.Path;
-//import java.nio.file.Paths;
-//
-//@Service
-//public class ConfigurationService {
-//
-//    private OCS ocs;  // This will be used to call methods from OCS
-//
-//    // Path to save the uploaded configuration file
-//    private final String configFilePath = "/data/data/config/file";  // Change this path to your desired location
-//
-//    // Constructor to initialize OCS instance
-//    public ConfigurationService() {
-//        this.ocs = new OCS();  // Create an instance of OCS to interact with the database
-//    }
-//
-//    // Method to retrieve configurations from the database
-//    public String getConfigurations() {
-//
-//        try {
-//             ocs.getDefaultConfiguration();  // Calls the OCS method to get the configurations
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        return "";
-//    }
-//
-//    // Method to add a new configuration (handling file upload)
-//    public boolean addConfiguration(MultipartFile file) {
-//        if (file.isEmpty()) {
-//            return false;  // Return false if the file is empty
-//        }
-//
-//        // Save the file to the specified directory and return the file path
-//        String filePath = saveConfigurationFile(file);
-//
-//        // If file is successfully saved, add the configuration to the database
-//        return filePath != null && ocs.addConfiguration(filePath);
-//        ocs.
-//    }
-//
-//    // Method to remove an existing configuration
-//    public boolean removeConfiguration(int confNo) {
-//        return ocs.removeConfiguration(confNo);  // Calls the OCS method to remove the configuration from the database
-//    }
-//
-//    // Helper method to save the uploaded file to a directory and return the file path
-//    private String saveConfigurationFile(MultipartFile file) {
-//        try {
-//            // Define the path to save the file
-//            Path path = Paths.get(configFilePath + "/" + file.getOriginalFilename());
-//            File fileToSave = new File(path.toString());
-//
-//            // Save the file to the disk
-//            file.transferTo(fileToSave);
-//
-//            return fileToSave.getPath();  // Return the path where the file was saved
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            return null;  // Return null if there's an error saving the file
-//        }
-//    }
-//}
+package th.ac.mahidol.ict.gemini_login.service;
+
+import org.springframework.stereotype.Service;
+import java.io.*;
+import java.util.stream.Collectors;
+
+@Service
+public class ConfigurationService {
+
+    // Method to load the current configuration
+    public String loadCurrentConfiguration() throws IOException {
+        String workingDir = System.getProperty("user.dir");
+        File currentFile = new File(workingDir, "/references/gemini_config_current.json");
+
+        if (!currentFile.exists()) {
+            return "Current configuration not found!";
+        }
+
+        InputStream inputStream = new FileInputStream(currentFile);
+        String jsonText = (new BufferedReader(new InputStreamReader(inputStream)))
+                .lines().collect(Collectors.joining("\n"));
+
+        return jsonText;  // Returning the JSON content as a string (or you can convert it to a JSONObject)
+    }
+
+    // Method to load the default configuration
+    public String loadDefaultConfiguration() throws IOException {
+        String workingDir = System.getProperty("user.dir");
+        File defaultFile = new File(workingDir, "/references/gemini_config_default.json");
+
+        if (!defaultFile.exists()) {
+            return "Default configuration not found!";
+        }
+
+        InputStream inputStream = new FileInputStream(defaultFile);
+        String jsonText = (new BufferedReader(new InputStreamReader(inputStream)))
+                .lines().collect(Collectors.joining("\n"));
+
+        return jsonText;  // Returning the JSON content as a string (or you can convert it to a JSONObject)
+    }
+
+    // Method to update the current configuration
+    public String updateConfiguration(String newConfigJson) throws IOException {
+        String workingDir = System.getProperty("user.dir");
+        File currentFile = new File(workingDir, "/references/gemini_config_current.json");
+
+        // Write the updated configuration to the current file
+        try (FileWriter writer = new FileWriter(currentFile)) {
+            writer.write(newConfigJson);
+        }
+
+        return "Configuration updated successfully!";
+    }
+}

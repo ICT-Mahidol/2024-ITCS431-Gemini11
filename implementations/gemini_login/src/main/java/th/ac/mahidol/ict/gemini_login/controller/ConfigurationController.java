@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import th.ac.mahidol.ict.gemini_login.service.ConfigurationService;
+import java.io.IOException;
 
 @Controller
 public class ConfigurationController {
@@ -16,22 +17,44 @@ public class ConfigurationController {
     // Endpoint to view current configurations
     @GetMapping("/view-configurations")
     public String viewConfigurations(Model model) {
-        String configurations = configurationService.getConfigurations();
-        model.addAttribute("configurations", configurations);
-        return "viewConfig";  // Returns the viewConfig.html template
+        try {
+            // Load current configuration and display it
+            String currentConfig = configurationService.loadCurrentConfiguration();
+            model.addAttribute("configurations", currentConfig);
+        } catch (IOException e) {
+            model.addAttribute("statusMessage", "Error loading current configuration: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return "configurationPage";  // Return the configurationPage.html template
     }
 
-    // Endpoint to add new configuration (handle file upload)
-    @PostMapping("/add-config")  // Make sure the method is POST
-    public String addConfiguration(@RequestParam("configFile") MultipartFile file, Model model) {
-        if (file.isEmpty()) {
-            model.addAttribute("statusMessage", "No file selected. Please choose a file.");
-            return "uploadConfig";  // Return to the uploadConfig page with error message
+    // Endpoint to view default configurations
+    @GetMapping("/view-default-config")
+    public String viewDefaultConfig(Model model) {
+        try {
+            // Load default configuration and display it
+            String defaultConfig = configurationService.loadDefaultConfiguration();
+            model.addAttribute("configurations", defaultConfig);
+        } catch (IOException e) {
+            model.addAttribute("statusMessage", "Error loading default configuration: " + e.getMessage());
+            e.printStackTrace();
         }
+        return "configurationPage";  // Return the configurationPage.html template
+    }
 
-        // Handle the file upload and return the success/failure status
-        boolean isSuccess = configurationService.addConfiguration(file);
-        model.addAttribute("statusMessage", isSuccess ? "Configuration uploaded successfully." : "Failed to upload configuration.");
-        return "uploadConfig";  // Return to the same page (uploadConfig.html)
+    // Endpoint to upload and update the current configuration
+    @PostMapping("/update-config")
+    public String updateConfiguration(@RequestParam("newConfig") MultipartFile newConfigFile, Model model) {
+        try {
+            // Convert the uploaded file to a string (JSON)
+            String newConfigJson = new String(newConfigFile.getBytes());
+
+            String updateStatus = configurationService.updateConfiguration(newConfigJson);  // Update configuration
+            model.addAttribute("statusMessage", updateStatus);
+        } catch (IOException e) {
+            model.addAttribute("statusMessage", "Error updating configuration: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return "configurationPage";  // Return to the configuration page with status message
     }
 }
