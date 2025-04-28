@@ -24,7 +24,7 @@ public class SecurityConfig {
                         // Authenticated users can access the configuration pages
                         .requestMatchers("/view-configurations", "/view-default-config", "/update-config").authenticated()
 
-                        .requestMatchers("/create-science-plan-form, ","/create-science-plan").hasRole("ASTRONOMER")
+                        .requestMatchers("/create-science-plan-form","/create-science-plan").hasRole("ASTRONOMER")
                         // Allow all other requests (public access to pages like the Welcome page)
                         .anyRequest().permitAll()
                 )
