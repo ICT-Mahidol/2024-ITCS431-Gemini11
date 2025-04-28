@@ -66,7 +66,7 @@ public class ConfigurationController {
     @GetMapping("/download-config")
     public @ResponseBody byte[] downloadConfig() throws IOException {
         String workingDir = System.getProperty("user.dir");
-        File currentFile = new File(workingDir, "/references/gemini_config_current.json");
+        File currentFile = new File(workingDir, "/references/config/gemini_config_current.json");
 
         if (!currentFile.exists()) {
             throw new IOException("Current configuration file not found!");
