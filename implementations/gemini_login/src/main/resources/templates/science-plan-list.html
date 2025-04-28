@@ -7,6 +7,10 @@
 </head>
 <body>
 <div class="container mt-5">
+  <form th:action="@{/logout}" method="post" class="mt-4" onsubmit="clearMessages()">
+    <button type="submit" class="btn btn-danger">Logout</button>
+  </form>
+  <a th:href="@{/create-science-plan-form}" class="btn btn-success mt-4">Create A New Science Plan</a>
   <h2 class="text-center mb-4">All Science Plans</h2>
 
   <table class="table table-bordered table-hover">
@@ -31,9 +35,6 @@
     </tbody>
   </table>
 
-  <div class="text-center mt-4">
-    <a href="/welcome" class="btn btn-primary">Back to Welcome Page</a>
-  </div>
 </div>
 </body>
 </html>

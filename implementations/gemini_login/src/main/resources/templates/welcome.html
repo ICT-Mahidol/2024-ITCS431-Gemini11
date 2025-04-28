@@ -60,12 +60,6 @@
                 </div>
 
 
-                <div sec:authorize="hasRole('Astronomer')">
-                    <a th:href="@{/create-science-plan-form}" class="btn btn-success">Create A New Science Plan</a>
-                    <a th:href="@{/science-plan-list}" class="btn btn-success">View Science Plans</a>
-                </div>
-
-
                 <!-- Logout Button -->
                 <form th:action="@{/logout}" method="post" class="mt-4" onsubmit="clearMessages()">
                     <button type="submit" class="btn logout-btn">Logout</button>

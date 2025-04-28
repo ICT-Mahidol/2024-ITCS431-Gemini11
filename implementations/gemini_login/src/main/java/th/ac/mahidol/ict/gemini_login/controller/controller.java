@@ -105,6 +105,10 @@ public class controller {
             return "redirect:/view-configurations";
         }
 
+        if (role.equals("ROLE_ASTRONOMER")) {
+            return "redirect:/science-plan-list";
+        }
+
         model.addAttribute("role", role);
         model.addAttribute("message", message);
         model.addAttribute("error", error);
