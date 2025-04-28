@@ -7,12 +7,13 @@
     <list default="true" id="60cab173-6549-4f1f-9369-cba5b5ad8562" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/th/ac/mahidol/ict/gemini_login/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/th/ac/mahidol/ict/gemini_login/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/th/ac/mahidol/ict/gemini_login/controller/controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/th/ac/mahidol/ict/gemini_login/controller/controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/data.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/data.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/observing-program.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/templates/observing-program.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/configurationPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/templates/configurationPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/resources/templates/create-science-plan-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/templates/create-science-plan-form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/resources/templates/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/resources/templates/welcome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/th/ac/mahidol/ict/gemini_login/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/th/ac/mahidol/ict/gemini_login/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/th/ac/mahidol/ict/gemini_login/controller/ConfigurationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/th/ac/mahidol/ict/gemini_login/controller/ConfigurationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/observing-program.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/observing-program.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/th/ac/mahidol/ict/gemini_login/controller/controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/th/ac/mahidol/ict/gemini_login/controller/controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/configurationPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/configurationPage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/welcome.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +125,8 @@
       <workItem from="1745489927782" duration="627000" />
       <workItem from="1745580377310" duration="4888000" />
       <workItem from="1745665347007" duration="3496000" />
-      <workItem from="1745680268583" duration="1310000" />
+      <workItem from="1745680268583" duration="1587000" />
+      <workItem from="1745847219095" duration="992000" />
     </task>
     <servers />
   </component>

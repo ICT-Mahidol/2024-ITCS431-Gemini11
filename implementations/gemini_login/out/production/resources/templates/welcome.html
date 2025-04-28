@@ -42,6 +42,7 @@
         .btn-info {
             width: 100%;
         }
+
     </style>
 </head>
 <body>
@@ -58,10 +59,12 @@
                     <a th:href="@{/register}" class="btn btn-success">Create New User</a>
                 </div>
 
-                <!-- For authenticated users (admin or support) to view configurations -->
-                <div sec:authorize="isAuthenticated()">
-                    <a th:href="@{/view-configurations}" class="btn btn-info">View Configurations</a>
+
+                <div sec:authorize="hasRole('Astronomer')">
+                    <a th:href="@{/create-science-plan-form}" class="btn btn-success">Create A New Science Plan</a>
+                    <a th:href="@{/science-plan-list}" class="btn btn-success">View Science Plans</a>
                 </div>
+
 
                 <!-- Logout Button -->
                 <form th:action="@{/logout}" method="post" class="mt-4" onsubmit="clearMessages()">

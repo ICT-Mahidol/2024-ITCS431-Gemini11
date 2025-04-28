@@ -101,6 +101,10 @@ public class controller {
             return "redirect:/observing-program-form";
         }
 
+        if (role.equals("ROLE_SUPPORT_STAFF")) {
+            return "redirect:/view-configurations";
+        }
+
         model.addAttribute("role", role);
         model.addAttribute("message", message);
         model.addAttribute("error", error);

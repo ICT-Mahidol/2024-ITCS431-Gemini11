@@ -10,12 +10,11 @@
 <body>
 <div class="container mt-5">
     <h2 class="text-center">Manage Gemini Configuration</h2>
-
+    <form th:action="@{/logout}" method="post" class="mt-4" onsubmit="clearMessages()">
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
     <!-- Displaying status message (error or success) -->
     <div class="alert alert-info" th:if="${statusMessage}" th:text="${statusMessage}"></div>
-    <div class="text-center">
-        <a href="/welcome" class="btn btn-secondary btn-lg mt-4">Back to Welcome</a>
-    </div>
     <!-- Buttons to view current or default configuration -->
     <form action="/view-configurations" method="GET">
         <button type="submit" class="btn btn-primary btn-lg btn-block mt-4">View Current Configuration</button>
