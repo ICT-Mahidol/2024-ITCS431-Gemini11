@@ -1,0 +1,30 @@
+Use Case: Create a New Science Plan
+
+How to run
+Use Case: Create a Science Plan
+1. Go to localhost:8080/login
+
+2. login as 
+   username: Aruss
+   password: 12345
+
+3. You will be redirected to view science plan page
+
+4. Click create new science plan to go to science plan page
+
+5. Fill all of the required parameters.
+
+6. Click save science plan
+
+
+Frontend
+
+path ./src/main/resources/templates
+
+- create-science-plan-form.html
+
+- view-science-plan.html     
+
+Backend
+
+Controller: ObservingProgramController, This handles the get and post Mapping in the app.
