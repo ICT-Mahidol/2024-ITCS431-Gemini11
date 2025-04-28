@@ -1,0 +1,28 @@
+{
+  "planNo" : 556194,
+  "creator" : "Admin",
+  "submitter" : null,
+  "fundingInUSD" : 4.0,
+  "objectives" : "don't care",
+  "starSystem" : "Centaurus",
+  "startDate" : "2025-04-17 00:00:00",
+  "endDate" : "2025-04-26 00:00:00",
+  "telescopeLocation" : "CHILE",
+  "dataProcRequirements" : [ {
+    "fileType" : "raw",
+    "fileQuality" : "fine",
+    "colorType" : "bw",
+    "contrast" : 9814.5,
+    "brightness" : 78.9,
+    "saturation" : 0.0,
+    "highlights" : 0.0,
+    "exposure" : 0.0,
+    "shadows" : 0.0,
+    "whites" : 100.0,
+    "blacks" : 50.0,
+    "luminance" : 1.0,
+    "hue" : 0.0
+  } ],
+  "status" : null,
+  "description" : null
+}

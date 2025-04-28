@@ -1,0 +1,93 @@
+<!-- =======================================================
+  list_observing_programs.html   (complete, with working Edit)
+  last updated: 2025‑04‑29
+======================================================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Observing Program List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root{--gap:1rem}
+        body{background:#f8f9fa}
+        .container{margin-top:50px}
+        h1{font-weight:700;margin-bottom:30px}
+        .table th,.table td{vertical-align:middle;font-size:.875rem}
+        .top-buttons{display:flex;justify-content:space-between;margin-bottom:20px;gap:var(--gap)}
+        .card{border-radius:15px;box-shadow:0 4px 8px rgba(0,0,0,.1);padding:20px}
+        .action-buttons{display:flex;gap:.5rem;justify-content:center}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="top-buttons">
+        <button class="btn btn-primary" onclick="location.href='/observing-program-form'">➕ Create New Observing Program</button>
+        <button class="btn btn-danger" onclick="location.href='/logout'">Logout</button>
+    </div>
+    <div class="card">
+        <h1 class="text-center">List of Observing Programs</h1>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered" id="programTable">
+                <thead class="table-dark text-center">
+                <tr>
+                    <th>Plan No</th><th>Gemini Location</th><th>Optics Primary</th><th>F‑Stop</th><th>Secondary RMS</th><th>Mirror Degree</th><th>Mirror Type</th><th>Module Content</th><th>Calibration Unit</th><th>Light Type</th><th>Telescope Positions</th><th style="min-width:115px">Actions</th>
+                </tr>
+                </thead>
+                <tbody id="programTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    function loadPrograms(){
+        fetch('/observing-program-list-json')
+            .then(r=>r.json())
+            .then(list=>{
+                list.sort((a,b)=>a.planNo-b.planNo);
+                const body=document.getElementById('programTableBody');
+                body.innerHTML='';
+                list.forEach(p=>body.appendChild(renderRow(p)));
+            })
+            .catch(err=>console.error('Error loading programs:',err));
+    }
+    function renderRow(p){
+        const tr=document.createElement('tr');
+        tr.className='text-center';
+        tr.innerHTML=`
+            <td>${p.planNo}</td>
+            <td>${p.geminiLocation}</td>
+            <td>${p.opticsPrimary}</td>
+            <td>${p.fStop}</td>
+            <td>${p.opticsSecondaryRMS}</td>
+            <td>${p.scienceFoldMirrorDegree}</td>
+            <td>${p.scienceFoldMirrorTypeValue}</td>
+            <td>${p.moduleContentValue}</td>
+            <td>${p.calibrationUnitValue}</td>
+            <td>${p.lightTypeValue}</td>
+            <td>${p.telescopePositionPair}</td>
+            <td>
+                <div class="action-buttons">
+                    <button class="btn btn-sm btn-warning" onclick="editProgram(${p.planNo})">Edit</button>
+                    <button class="btn btn-sm btn-danger" onclick="deleteProgram(${p.planNo})">Delete</button>
+                </div>
+            </td>`;
+        return tr;
+    }
+    function editProgram(planNo){
+        // Navigate to the edit form with the selected plan number
+        window.location.href = `/observing-program-form-edit?planNo=${planNo}`;
+    }
+    function deleteProgram(planNo){
+        if(!confirm(`Delete Plan No ${planNo}?`)) return;
+        fetch(`/delete-observing-program/${planNo}`,{method:'DELETE'})
+            .then(r=>{ if(r.ok) loadPrograms(); else alert('Failed to delete program.'); })
+            .catch(err=>alert('Error deleting program: '+err));
+    }
+    loadPrograms();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
