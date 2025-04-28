@@ -1,0 +1,28 @@
+{
+  "planNo" : 580279,
+  "creator" : "Admin",
+  "submitter" : null,
+  "fundingInUSD" : 50000.0,
+  "objectives" : "To know more about Jupiter",
+  "starSystem" : "LeoMinor",
+  "startDate" : "2025-06-04 00:00:00",
+  "endDate" : "2026-02-20 00:00:00",
+  "telescopeLocation" : "CHILE",
+  "dataProcRequirements" : [ {
+    "fileType" : "png",
+    "fileQuality" : "low",
+    "colorType" : "color",
+    "contrast" : 87.0,
+    "brightness" : 34.0,
+    "saturation" : 76.0,
+    "highlights" : 26.0,
+    "exposure" : 65.0,
+    "shadows" : 75.99,
+    "whites" : 0.0,
+    "blacks" : 0.0,
+    "luminance" : 0.0,
+    "hue" : 0.0
+  } ],
+  "status" : null,
+  "description" : null
+}

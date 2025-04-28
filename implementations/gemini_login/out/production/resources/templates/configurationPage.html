@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Gemini Configuration</title>
+    <!-- Bootstrap 4 CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="text-center">Manage Gemini Configuration</h2>
+    <form th:action="@{/logout}" method="post" class="mt-4" onsubmit="clearMessages()">
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+    <!-- Displaying status message (error or success) -->
+    <div class="alert alert-info" th:if="${statusMessage}" th:text="${statusMessage}"></div>
+    <!-- Buttons to view current or default configuration -->
+    <form action="/view-configurations" method="GET">
+        <button type="submit" class="btn btn-primary btn-lg btn-block mt-4">View Current Configuration</button>
+    </form>
+    <form action="/view-default-config" method="GET">
+        <button type="submit" class="btn btn-secondary btn-lg btn-block mt-4">View Default Configuration</button>
+    </form>
+    <!-- Button to download the current configuration -->
+    <form action="/download-config" method="GET">
+        <button type="submit" class="btn btn-info btn-lg btn-block mt-4">Download Current Configuration</button>
+    </form>
+
+    <hr>
+
+    <!-- Form for uploading a new configuration file -->
+    <form action="/update-config" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="newConfig">Upload New Configuration (JSON Format)</label>
+            <input type="file" class="form-control-file" id="newConfig" name="newConfig" accept=".json" required>
+        </div>
+        <button type="submit" class="btn btn-success btn-lg btn-block mt-4">Update Configuration</button>
+    </form>
+
+    <hr>
+
+    <!-- Display current or default configuration content -->
+    <h3>Configuration Content:</h3>
+    <pre th:text="${configurations}"></pre> <!-- Display JSON content in a readable format -->
+
+
+</div>
+
+<!-- Bootstrap and jQuery JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
