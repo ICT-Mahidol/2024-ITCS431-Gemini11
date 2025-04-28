@@ -20,6 +20,7 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
     @PostConstruct
     public void init() {
         if (userRepository.findByUsername("Admin").isEmpty()) {
@@ -27,6 +28,12 @@ public class UserService implements UserDetailsService {
             admin.setUsername("Admin");
             admin.setPassword(passwordEncoder.encode("Admin"));
             admin.setRole("ROLE_ADMINISTRATOR");
+
+            int id = -1;
+            while (userRepository.existsById(id)) {
+                id++;
+            }
+            admin.setId(id);
             userRepository.save(admin);
         }
     }
