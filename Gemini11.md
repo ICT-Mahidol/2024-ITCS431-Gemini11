@@ -54,7 +54,7 @@ noted that admin have the password as 'Admin' and the rest have the password as 
 
 ### Create a New Science Plan
 
-1. Login as Science Observer 'aruScience'
+1. Login as Astronomer 'arustronomer'
 
 2. You will be redirected to view science plan page
  
@@ -77,14 +77,38 @@ path ./src/main/resources/templates
       - This page is for viewing all of the science plan.
       - The science plan will be parsed from JSON in the path ./references/science_plan
  
-#### Backend
+#### Backend:
  
    Controller
       - sciencePlanController
          - This handles the GET and POST mapping in the app. 
          - This handles the data and saves the science plan as a JSON file.
 
-### 
+### Create an Observing Program
+
+1. Login as Science Observer 'aruScience'
+
+2. You will be redirected to create observer program page, which you must fill every field with valid data before creating
+ 
+3. You can view the existed observing program by clicking 'View List' button at the top left corner of the page
+ 
+4. In the view page, you will be presented with every observing plan sorted by plan number. Users can Edit or delete observing plans here via action button on the right-most column of each rows.
+ 
+#### Frontend:
+ 
+path ./src/main/resources/templates
+ 
+   observing-program.html, observing-program-form-edit.html, observing-program-list.html
+      - the observing plan will be stored in reference folder as .JSON file
+      - the plan number will be auto-increment and added as a key attribute
+ 
+#### Backend:
+ 
+   Controller
+      - ObservingProgramController
+         - This handles the GET and POST mapping in the app. 
+         - This handles the data and saves the observing program as a JSON file.
+
 
 
 # Design Pattern
