@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit Observing Program</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between mb-4">
+        <button class="btn btn-secondary" onclick="location.href='/observing-program-list'">View All Programs</button>
+        <button class="btn btn-danger" onclick="location.href='/logout'">Logout</button>
+    </div>
+
+    <h1 class="text-center">Edit Observing Program</h1>
+
+    <form id="observingProgramForm" novalidate>
+        <div class="mb-3">
+            <label class="form-label">Plan Number <span class="text-danger">*</span></label>
+            <input type="number" class="form-control" id="planNo" name="planNo" readonly required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Gemini Location <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="geminiLocation" name="geminiLocation" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Optics Primary <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="opticsPrimary" name="opticsPrimary" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">F-stop <span class="text-danger">*</span></label>
+            <input type="number" step="0.1" class="form-control" id="fStop" name="fStop" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Optics Secondary RMS <span class="text-danger">*</span></label>
+            <input type="number" step="0.1" class="form-control" id="opticsSecondaryRMS" name="opticsSecondaryRMS" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Science Fold Mirror Degree <span class="text-danger">*</span></label>
+            <input type="number" step="0.1" class="form-control" id="scienceFoldMirrorDegree" name="scienceFoldMirrorDegree" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Science Fold Mirror Type <span class="text-danger">*</span></label>
+            <select class="form-select" id="scienceFoldMirrorType" name="scienceFoldMirrorType" required>
+                <option value="" disabled selected>Select type</option>
+                <option value="REFLECTIVE_CONVERGING_BEAM">REFLECTIVE_CONVERGING_BEAM</option>
+                <option value="CASSEGRAIN_FOCUS">CASSEGRAIN_FOCUS</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Module Content <span class="text-danger">*</span></label>
+            <select class="form-select" id="moduleContent" name="moduleContent" required>
+                <option value="" disabled selected>Select module</option>
+                <option value="GMOS-N">GMOS-N</option>
+                <option value="GMOS-S">GMOS-S</option>
+                <option value="GNIRS">GNIRS</option>
+                <option value="NIRI">NIRI</option>
+                <option value="GPI">GPI</option>
+                <option value="FLAMINGOS-2">FLAMINGOS-2</option>
+                <option value="GSAOI">GSAOI</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Calibration Unit <span class="text-danger">*</span></label>
+            <select class="form-select" id="calibrationUnit" name="calibrationUnit" required>
+                <option value="" disabled selected>Select unit</option>
+                <option value="Argon">Argon</option>
+                <option value="Xenon">Xenon</option>
+                <option value="ThAr">ThAr</option>
+                <option value="CuAr">CuAr</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Light Type <span class="text-danger">*</span></label>
+            <select class="form-select" id="lightType" name="lightType" required>
+                <option value="" disabled selected>Select light type</option>
+                <option value="MaunaKeaSkyEmission">Mauna Kea Sky Emission</option>
+                <option value="CerroPachonSkyEmission">Cerro Pachón Sky Emission</option>
+            </select>
+        </div>
+
+        <h3 class="mt-4">Telescope Position Pairs <span class="text-danger">*</span></h3>
+        <div id="telescopePositionPairs"></div>
+        <button type="button" class="btn btn-secondary mb-3" onclick="addTelescopePositionPair()">Add More Positions</button>
+
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Save Observing Program</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const planNo    = urlParams.get('planNo');
+
+    function addTelescopePositionPair(direction = '', degree = '') {
+        const container = document.getElementById('telescopePositionPairs');
+        container.insertAdjacentHTML('beforeend', `
+            <div class="row g-3 align-items-end mb-2 pair-row">
+                <div class="col-md-4">
+                    <label class="form-label">Direction</label>
+                    <select class="form-select" name="direction" required>
+                        <option value="" disabled ${direction ? '' : 'selected'}>Select</option>
+                        <option value="North" ${direction === 'North' ? 'selected' : ''}>North</option>
+                        <option value="South" ${direction === 'South' ? 'selected' : ''}>South</option>
+                        <option value="East"  ${direction === 'East'  ? 'selected' : ''}>East</option>
+                        <option value="West"  ${direction === 'West'  ? 'selected' : ''}>West</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Degree</label>
+                    <input type="number" step="0.1" class="form-control" name="degree" value="${degree}" required>
+                </div>
+            </div>`);
+    }
+
+    if (planNo) {
+        fetch(`/api/observing-program/${planNo}`)
+            .then(r => {
+                if (!r.ok) throw new Error('Program not found');
+                return r.json();
+            })
+            .then(populateForm)
+            .catch(err => {
+                console.error(err);
+                alert('Error loading program details');
+            });
+    } else {
+        window.location.href = '/observing-program-list';
+    }
+
+    function populateForm(p) {
+        document.getElementById('planNo').value                  = p.planNo;
+        document.getElementById('geminiLocation').value          = p.geminiLocation;
+        document.getElementById('opticsPrimary').value           = p.opticsPrimary;
+        document.getElementById('fStop').value                   = p.fStop;
+        document.getElementById('opticsSecondaryRMS').value      = p.opticsSecondaryRMS;
+        document.getElementById('scienceFoldMirrorDegree').value = p.scienceFoldMirrorDegree;
+
+        document.getElementById('scienceFoldMirrorType').value = p.scienceFoldMirrorTypeValue;
+        document.getElementById('moduleContent').value         = p.moduleContentValue;
+        document.getElementById('calibrationUnit').value       = p.calibrationUnitValue;
+        document.getElementById('lightType').value             = p.lightTypeValue;
+
+        if (p.telescopePositionPair && p.telescopePositionPair.trim() !== '') {
+            p.telescopePositionPair.split(',').forEach(pair => {
+                const [dir, deg] = pair.split(':');
+                addTelescopePositionPair(dir.trim(), deg.trim());
+            });
+        } else {
+            addTelescopePositionPair();
+        }
+    }
+
+    document.getElementById('observingProgramForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const form = e.target;
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+        const payload = buildPayload(new FormData(form));
+
+        fetch('/save-observing-program', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        })
+        .then(r => {
+            if (r.ok) {
+                window.location.href = '/observing-program-list';
+            } else {
+                alert('Failed to save program');
+            }
+        })
+        .catch(err => {
+            console.error('Save error:', err);
+            alert('Error saving program');
+        });
+    });
+
+    function buildPayload(fd) {
+        const dirs = [...document.getElementsByName('direction')].map(el => el.value);
+        const degs = [...document.getElementsByName('degree')].map(el => el.value);
+
+        return {
+            planNo:                  Number(fd.get('planNo')),
+            geminiLocation:          fd.get('geminiLocation'),
+            opticsPrimary:           fd.get('opticsPrimary'),
+            fStop:                   Number(fd.get('fStop')),
+            opticsSecondaryRMS:      Number(fd.get('opticsSecondaryRMS')),
+            scienceFoldMirrorDegree: Number(fd.get('scienceFoldMirrorDegree')),
+            scienceFoldMirrorTypeValue: fd.get('scienceFoldMirrorType'),
+            moduleContentValue:      fd.get('moduleContent'),
+            calibrationUnitValue:    fd.get('calibrationUnit'),
+            lightTypeValue:          fd.get('lightType'),
+            telescopePositionPair:   dirs.map((d, i) => `${d}:${degs[i]}`).join(','),
+            notes: "" // editable notes could be added later
+        };
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

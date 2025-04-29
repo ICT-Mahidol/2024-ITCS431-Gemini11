@@ -8,11 +8,8 @@ public class User {
 
     @Id
     private Integer id;
-
-
     @Column(unique = true)
     private String username;
-
     private String password;
     private String role;
 

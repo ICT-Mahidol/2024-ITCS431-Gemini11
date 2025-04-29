@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="OCS">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/libs/OCS.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

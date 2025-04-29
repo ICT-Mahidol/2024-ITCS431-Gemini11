@@ -8,7 +8,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-
 import jakarta.annotation.PostConstruct;
 import java.util.Collections;
 
@@ -20,13 +19,23 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
     @PostConstruct
     public void init() {
         if (userRepository.findByUsername("Admin").isEmpty()) {
             User admin = new User();
+
+            // Auto-assign ID manually (find next available ID)
+            int id = 1;
+            while (userRepository.existsById(id)) {
+                id++;
+            }
+            admin.setId(id);
+
             admin.setUsername("Admin");
             admin.setPassword(passwordEncoder.encode("Admin"));
             admin.setRole("ROLE_ADMINISTRATOR");
+
             userRepository.save(admin);
         }
     }
@@ -36,7 +45,7 @@ public class UserService implements UserDetailsService {
             throw new IllegalArgumentException("Username already exists.");
         }
 
-
+        // Find next available ID
         int id = 1;
         while (userRepository.existsById(id)) {
             id++;

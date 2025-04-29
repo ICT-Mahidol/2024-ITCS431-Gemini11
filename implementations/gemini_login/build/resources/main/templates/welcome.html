@@ -34,10 +34,15 @@
             border-color: #bd2130;
         }
 
-        .btn-success{
+        .btn-success {
             width: 100%;
             margin-bottom: 10px;
         }
+
+        .btn-info {
+            width: 100%;
+        }
+
     </style>
 </head>
 <body>
@@ -48,11 +53,14 @@
                 <h2 class="text-center mb-4" th:text="'Welcome, ' + ${username}  + '!'">Welcome</h2>
                 <p class="text-center text-muted mb-4" th:text="'Your role is: ' + (${role} ?: 'Unknown')">Your role is: Unknown</p>
 
+                <!-- Only Admin Role (ADMINISTRATOR) can see these buttons -->
                 <div sec:authorize="hasRole('ADMINISTRATOR')">
                     <a th:href="@{/users}" class="btn btn-primary">View All Users</a>
                     <a th:href="@{/register}" class="btn btn-success">Create New User</a>
                 </div>
 
+
+                <!-- Logout Button -->
                 <form th:action="@{/logout}" method="post" class="mt-4" onsubmit="clearMessages()">
                     <button type="submit" class="btn logout-btn">Logout</button>
                 </form>
