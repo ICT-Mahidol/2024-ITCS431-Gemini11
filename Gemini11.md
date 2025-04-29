@@ -47,18 +47,22 @@ After the application run succesfully and springboot server is online, go to loc
 | aruSupport   | ROLE_SUPPORT_STAFF    |
 | aruScience   | ROLE_SCIENCE_OBSERVER |
 
+noted that admin have the password as 'Admin' and the rest have the password as '12345'
+
 
 ## how-to guide to nevigate through each usecases
 
 ### Create a New Science Plan
 
-3. You will be redirected to view science plan page
+1. Login as Science Observer 'aruScience'
+
+2. You will be redirected to view science plan page
  
-4. Click create new science plan to go to science plan page
+3. Click create new science plan to go to science plan page
  
-5. Fill all of the required parameters.
+4. Fill all of the required parameters.
  
-6. Click save science plan
+5. Click save science plan
  
  
 #### Frontend:
@@ -73,12 +77,14 @@ path ./src/main/resources/templates
       - This page is for viewing all of the science plan.
       - The science plan will be parsed from JSON in the path ./references/science_plan
  
-##### Backend
+#### Backend
  
    Controller
       - sciencePlanController
          - This handles the GET and POST mapping in the app. 
          - This handles the data and saves the science plan as a JSON file.
+
+### 
 
 
 # Design Pattern
