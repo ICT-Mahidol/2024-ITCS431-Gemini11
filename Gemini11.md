@@ -48,6 +48,39 @@ After the application run succesfully and springboot server is online, go to loc
 | aruScience   | ROLE_SCIENCE_OBSERVER |
 
 
+## how-to guide to nevigate through each usecases
+
+### Create a New Science Plan
+
+3. You will be redirected to view science plan page
+ 
+4. Click create new science plan to go to science plan page
+ 
+5. Fill all of the required parameters.
+ 
+6. Click save science plan
+ 
+ 
+#### Frontend:
+ 
+path ./src/main/resources/templates
+ 
+   create-science-plan-form.html
+      - This page is for creating a science plan form.
+      - The science plan data will be saved as a JSON in the path ./references/science_plan
+ 
+   view-science-plan.html     
+      - This page is for viewing all of the science plan.
+      - The science plan will be parsed from JSON in the path ./references/science_plan
+ 
+##### Backend
+ 
+   Controller
+      - sciencePlanController
+         - This handles the GET and POST mapping in the app. 
+         - This handles the data and saves the science plan as a JSON file.
+
+
 # Design Pattern
 
 The implementation of **@Service, @Configuration, @Repository** used in corresponding part of the program are **Singleton**, because the spring controller will marked it as singleton and create only one instance of each one. 
