@@ -52,6 +52,8 @@ noted that admin have the password as 'Admin' and the rest have the password as 
 
 ## how-to guide to nevigate through each usecases
 
+---
+
 ### Create a New Science Plan
 
 1. Login as Astronomer 'arustronomer'
@@ -84,6 +86,31 @@ path ./src/main/resources/templates
          - This handles the GET and POST mapping in the app. 
          - This handles the data and saves the science plan as a JSON file.
 
+---
+
+### Install new configuration
+1. Login as Support staff 'aruSupport'
+2.  You can view current config and default configuration in this page
+3.  Press 'Choose file' to upload json and 'update configuration' to update the current config
+4.  Press 'Download Current Configuration'
+
+### Frontend:
+path ./src/main/resources/templates
+   configurationPage.html
+   - The page will show current configuration and default configuration
+   - The currentConfig will be stored  in reference folder as .JSON file
+   - The curerntConfiguration can be replace by upload new confgiration file
+
+### Backend
+ConfigurationController
+   - This handle view, view-default, update and download the configuration
+   - It will save the configuration file in reference folder.
+
+ConfigurationService
+   - This will call variety method in OCS.jar like loadCurrent, loadDefault and updateConfiguration
+       
+---
+
 ### Create an Observing Program
 
 1. Login as Science Observer 'aruScience'
@@ -109,7 +136,7 @@ path ./src/main/resources/templates
          - This handles the GET and POST mapping in the app. 
          - This handles the data and saves the observing program as a JSON file.
 
-
+---
 
 # Design Pattern
 
