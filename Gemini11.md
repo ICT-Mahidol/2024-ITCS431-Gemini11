@@ -4,7 +4,15 @@ A Spring Boot-based web application that provides login functionality and secure
 
 ## 📌 Overview
 
-This project is part of the Gemini11 system developed by students at Mahidol University. It is focused on user authentication and session management for accessing astronomy science plans, likely integrating with external telescope control systems.
+This project is part of the Gemini11 system developed by students at Mahidol University. It is focused on user authentication and session management for accessing astronomy science plans, likely integrating with external telescope control systems. 
+
+However, the implementation in this directory only implement limited amount of use cases, which are:
+- Create Science plan (done by Astronomer role)
+- Install New Configurations and Subsystems (done by Support Staff role)
+- Create an observing program (done by Science Observer role)
+The use case description, activity diagram, and sequence diagram corresponding to these use cases are located in Gemini11_D5_Analysis.md, which located in designs folder
+
+Additionally, the login system has been implemented and the only way to create new account can only be done by logging in as Admin.
 
 Technologies used:
 - Spring Boot 3.0
@@ -40,5 +48,13 @@ After the application run succesfully and springboot server is online, go to loc
 | aruScience   | ROLE_SCIENCE_OBSERVER |
 
 
+### Design Pattern
 
+The implementation of **@Service, @Configuration, @Repository** used in corresponding part of the program are **Singleton**, because the spring controller will marked it as singleton and create only one instance of each one. 
+<br>
+
+The **Facade** pattern also used in **ConfigurationService, ObservingProgramService, and UserService** listed in the service folder in order to called controller and model to work together for the greater good and the sake of error control that it will be appeared only at the service in case other modules has been ensured as a clean, non error code.
+<br>
+
+Stpring Security also contain **Strategy** Pattern as it contains strategies to control login at runtime instead of embed the logic directly within a class to handle different stages of event in login process and other configuration installment processes.
 
