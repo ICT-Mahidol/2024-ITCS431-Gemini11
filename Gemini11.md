@@ -48,7 +48,7 @@ After the application run succesfully and springboot server is online, go to loc
 | aruScience   | ROLE_SCIENCE_OBSERVER |
 
 
-### Design Pattern
+# Design Pattern
 
 The implementation of **@Service, @Configuration, @Repository** used in corresponding part of the program are **Singleton**, because the spring controller will marked it as singleton and create only one instance of each one. 
 <br>
@@ -57,4 +57,6 @@ The **Facade** pattern also used in **ConfigurationService, ObservingProgramServ
 <br>
 
 Stpring Security also contain **Strategy** Pattern as it contains strategies to control login at runtime instead of embed the logic directly within a class to handle different stages of event in login process and other configuration installment processes.
+
+
 
